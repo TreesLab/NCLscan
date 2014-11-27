@@ -120,11 +120,12 @@ GitHub: https://github.com/TreesLab/NCLscan
 
 4. NCLscan Outputs
 
-  Two output files are generated after executing the pipeline: a tab-delimited text "MyProject.result.gene_name", 
-  and a SAM-format file “MyProject.result.sam” which contains the supporting reads of the identified non-co-linear    
-  events.
+  Two output files are generated after executing the pipeline: a tab-delimited text 
+  "MyProject.result.gene_name", and a SAM-format file “MyProject.result.sam” which contains 
+  the supporting reads of the identified non-co-linear events.
 
 The format of "MyProject.result.gene_name" is descripted as (table schema for each column):
+```
 (1) Reference Sequence name to identify each non-co-linear event found
 (2) Chromosome name of the donor side (5'ss) 
 (3) Junction coordinate of the donor side
@@ -139,5 +140,6 @@ The format of "MyProject.result.gene_name" is descripted as (table schema for ea
 (12) (Reserved column, no use)
 (13) Gene name of the donor side
 (14) Gene name of the acceptor side
-
-The output format of "MyProject.result.sam" is followed as standard SAM format. The users can find the details in http://samtools.github.io/hts-specs/SAMv1.pdf
+```
+The output format of "MyProject.result.sam" is followed as standard SAM format. The users can find
+the details in http://samtools.github.io/hts-specs/SAMv1.pdf
