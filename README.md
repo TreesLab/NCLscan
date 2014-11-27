@@ -70,7 +70,7 @@ GitHub: https://github.com/TreesLab/NCLscan
 
   The six steps and their usages are explained as following:
 
-  Step 1: NCL_Scan0
+  **Step 1: NCL_Scan0**
   
   Aligning reads against the reference genome and the annotated transcripts by BWA. BWA needs its 
   own reference genome to do mapping. This reference genome (GRCh37.p13) file can be downloaded from
