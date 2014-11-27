@@ -10,9 +10,10 @@ our FTP site: ftp://sinica.grc.treeslab/NCLscan or GitHub: https://github.com/Tr
 1. System Requirement
 
    The NCLscan pipeline is executed on the 64-bit Linux operation system (e.g., Bio-Linux 6; also see      
-   http://nebc.nerc.ac.uk/ for further details). The three used aligners (i.e., BWA, Novoalign, and BLAT) 
-   were involved in the package of NCLscan. They were downloaded from http://bio-bwa.sourceforge.net/,      
-   http://www.novocraft.com, and https://genome.ucsc.edu, respectively.
+   http://nebc.nerc.ac.uk/ for further details). The three used aligners (i.e., BWA, Novoalign, 
+   and BLAT) were involved in the package of NCLscan. They were downloaded from 
+   http://bio-bwa.sourceforge.net/,http://www.novocraft.com, and https://genome.ucsc.edu, 
+   respectively.
 
 2. Preparation
 
@@ -22,9 +23,8 @@ our FTP site: ftp://sinica.grc.treeslab/NCLscan or GitHub: https://github.com/Tr
    Taking the human reference genome (GRCh37.p13) as an example, the following 4 reference files should be 
    downloaded (http://www.gencodegenes.org/releases/19.html):
    
-   (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are the same as in the GTFs):    
-    GRCh37.p13.genome.fa.gz
-    
+   (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are the same as 
+       in the GTFs): GRCh37.p13.genome.fa.gz
    (2) Protein-coding transcript sequences in FASTA format: gencode.v19.pc_transcripts.fa.gz
    
    (3) Long non-coding RNAs in FASTA format: gencode.v19.lncRNA_transcripts.fa.gz
