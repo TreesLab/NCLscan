@@ -119,22 +119,22 @@ from our FTP site: ftp://sinica.grc.treeslab/NCLscan or GitHub: https://github.c
   "MyProject.result.gene_name", and a SAM-format file “MyProject.result.sam” which contains 
   the supporting reads of the identified non-co-linear events.
 
-The format of "MyProject.result.gene_name" is descripted as (table schema for each column):
+  The format of "MyProject.result.gene_name" is descripted as (table schema for each column):
+  ```
+  (1) Reference Sequence name to identify each non-co-linear event found
+  (2) Chromosome name of the donor side (5'ss) 
+  (3) Junction coordinate of the donor side
+  (4) Strand of the donor side
+  (5) Chromosome name of the acceptor side (3'ss) 
+  (6) Junction coordinate of the acceptor side
+  (7) Strand of the acceptor side
+  (8) (Reserved column, no use)
+  (9) Distance to the far left-side end of alignments from the junction site
+  (10) Distance to the far right-side end of alignments from the junction site
+  (11) Total number of the supporting reads
+  (12) (Reserved column, no use)
+  (13) Gene name of the donor side
+  (14) Gene name of the acceptor side
 ```
-(1) Reference Sequence name to identify each non-co-linear event found
-(2) Chromosome name of the donor side (5'ss) 
-(3) Junction coordinate of the donor side
-(4) Strand of the donor side
-(5) Chromosome name of the acceptor side (3'ss) 
-(6) Junction coordinate of the acceptor side
-(7) Strand of the acceptor side
-(8) (Reserved column, no use)
-(9) Distance to the far left-side end of alignments from the junction site
-(10) Distance to the far right-side end of alignments from the junction site
-(11) Total number of the supporting reads
-(12) (Reserved column, no use)
-(13) Gene name of the donor side
-(14) Gene name of the acceptor side
-```
-The output format of "MyProject.result.sam" is followed as standard SAM format. The users can find
+  The output format of "MyProject.result.sam" is followed as standard SAM format. The users can find
 the details in http://samtools.github.io/hts-specs/SAMv1.pdf
