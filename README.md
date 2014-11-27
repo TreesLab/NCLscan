@@ -1,40 +1,47 @@
 NCLscan
 =======
 a pipeline to detect trans-splicing and ciricular RNA using rna-seq
-=======
-Manual of NCLscan pipeline
+...................
 
-The package of NCLscan and the preparation of reference sequences can be downloaded from 
-our FTP site: ftp://sinica.grc.treeslab/NCLscan or GitHub: https://github.com/TreesLab/NCLscan
+
+Manual of NCLscan pipeline
+....................
+The package of NCLscan and the preparation of reference sequences can be downloaded
+from our FTP site: ftp://sinica.grc.treeslab/NCLscan or 
+GitHub: https://github.com/TreesLab/NCLscan
 
 1. System Requirement
 
-   The NCLscan pipeline is executed on the 64-bit Linux operation system (e.g., Bio-Linux 6; also see      
-   http://nebc.nerc.ac.uk/ for further details). The three used aligners (i.e., BWA, Novoalign, 
-   and BLAT) were involved in the package of NCLscan. They were downloaded from 
-   http://bio-bwa.sourceforge.net/,http://www.novocraft.com, and https://genome.ucsc.edu, 
-   respectively.
+   The NCLscan pipeline is executed on the 64-bit Linux operation system 
+   (e.g., Bio-Linux 6; also see http://nebc.nerc.ac.uk/ for further details). 
+   The three used aligners (i.e., BWA, Novoalign, and BLAT) were involved in the package
+   of NCLscan. They were downloaded from http://bio-bwa.sourceforge.net/,
+   http://www.novocraft.com, and https://genome.ucsc.edu, respectively.
 
 2. Preparation
 
    2.1 Reference sequences
    
-   The genomic sequences (FASTA files) were downloaded from the GENCODE website at http://www.gencodegenes.org/. 
-   Taking the human reference genome (GRCh37.p13) as an example, the following 4 reference files should be 
+   The genomic sequences (FASTA files) were downloaded from the GENCODE website at 
+   http://www.gencodegenes.org/. Taking the human reference genome (GRCh37.p13) as 
+   an example, the following 4 reference files should be 
    downloaded (http://www.gencodegenes.org/releases/19.html):
    
-   (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are the same as 
-       in the GTFs): GRCh37.p13.genome.fa.gz
+   (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are
+       the same as in the GTFs): GRCh37.p13.genome.fa.gz
+   
    (2) Protein-coding transcript sequences in FASTA format: gencode.v19.pc_transcripts.fa.gz
    
    (3) Long non-coding RNAs in FASTA format: gencode.v19.lncRNA_transcripts.fa.gz
     
    (4) Gene annotation: gencode.v19.annotation.gtf.gz
 
- 2.2 Configuration 
- The four reference sequence datasets and two RNA-seqs parameters are listed in order in “config.txt”. 
- The content of config.txt is just like:
- GRCh37.p13.genome.fa
+   2.2 Configuration 
+ 
+   The four reference sequence datasets and two RNA-seqs parameters are listed in order 
+   in “config.txt”. The content of config.txt is just like:
+ 
+   GRCh37.p13.genome.fa
  gencode.v19.pc_transcripts.fa
  gencode.v19.lncRNA_transcripts.fa
  gencode.v19.annotation.gtf
