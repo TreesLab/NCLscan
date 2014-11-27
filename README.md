@@ -78,21 +78,21 @@ GitHub: https://github.com/TreesLab/NCLscan
   UCSC, and etc.). If other reference genome for BWA was used, then changing the FASTA filename into 
   “bwa_AllRef.fa” and putting in the same sub-directory where NCLscan executes.
 
-Usage:
->./NCL_Scan0.sh 01.fastq 02.fastq MyProject
+   Usage:
+   >./NCL_Scan0.sh 01.fastq 02.fastq MyProject
 
-Step 2: NCL_Scan1
-Aligning the reads unmapped by BWA against the reference genome and the annotated transcripts by Novoalign.
+   **Step 2: NCL_Scan1**
+   Aligning the reads unmapped by BWA against the reference genome and the annotated transcripts by Novoalign.
 
-Usage:
-> NCL_Scan1 MyProject.bwa.unmapped_1.fastq MyProject.bwa.unmapped_2.fastq MyProject
+   Usage:
+   > NCL_Scan1 MyProject.bwa.unmapped_1.fastq MyProject.bwa.unmapped_2.fastq MyProject
 
-Step 3: NCL_Scan2
-Concatenating the two ends for each unmapped read and Blat-aligning the concatenated sequences against 
-the reference genome. Removing concatenated sequences with an alternative co-linear explanation. 
-Note: A cutoff of sequence quality score of reads for the RNA-seqs is given. 
+   **Step 3: NCL_Scan2**
+   Concatenating the two ends for each unmapped read and Blat-aligning the concatenated sequences against 
+   the reference genome. Removing concatenated sequences with an alternative co-linear explanation. 
+   Note: A cutoff of sequence quality score of reads for the RNA-seqs is given. 
 
-Usage:
+   Usage:
 > NCL_Scan2 20
 
 Step 4: NCL_Scan3
