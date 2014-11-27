@@ -18,16 +18,14 @@ GitHub: https://github.com/TreesLab/NCLscan
 
 2. Preparation
 
-⋅⋅ 2.1. Reference sequences
+   2.1. Reference sequences
    
    The genomic sequences (FASTA files) were downloaded from the GENCODE website at 
    http://www.gencodegenes.org/. Taking the human reference genome (GRCh37.p13) as 
    an example, the following 4 reference files should be 
    downloaded (http://www.gencodegenes.org/releases/19.html):
-   
    (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are
        the same as in the GTFs): GRCh37.p13.genome.fa.gz
-   
    (2) Protein-coding transcript sequences in FASTA format: gencode.v19.pc_transcripts.fa.gz
    
    (3) Long non-coding RNAs in FASTA format: gencode.v19.lncRNA_transcripts.fa.gz
