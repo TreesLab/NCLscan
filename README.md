@@ -34,7 +34,7 @@ GitHub: https://github.com/TreesLab/NCLscan
     
    (4) Gene annotation: gencode.v19.annotation.gtf.gz
 
-   2.2 Configuration 
+   2.2. Configuration 
  
    The four reference sequence datasets and two RNA-seqs parameters are listed in order 
    in “config.txt”. The content of config.txt is just like:
@@ -52,6 +52,7 @@ GitHub: https://github.com/TreesLab/NCLscan
  to (L+1, L*2 + insert size).
  
  2.3 Setting
+ 
  All the reference files, the config.txt and the used paired-end RNA-seq data should put in the same 
  sub-directory where NCLscan executes.
 
