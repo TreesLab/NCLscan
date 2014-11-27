@@ -8,6 +8,7 @@ The package of NCLscan and the preparation of reference sequences can be downloa
 our FTP site: ftp://sinica.grc.treeslab/NCLscan or GitHub: https://github.com/TreesLab/NCLscan
 
 1. System Requirement
+
 The NCLscan pipeline is executed on the 64-bit Linux operation system (e.g., Bio-Linux 6; also see http://nebc.nerc.ac.uk/ for further details). The three used aligners (i.e., BWA, Novoalign, and BLAT) 
 were involved in the package of NCLscan. They were downloaded from http://bio-bwa.sourceforge.net/, http://www.novocraft.com, and https://genome.ucsc.edu, respectively.
 
