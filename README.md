@@ -24,6 +24,7 @@ GitHub: https://github.com/TreesLab/NCLscan
    http://www.gencodegenes.org/. Taking the human reference genome (GRCh37.p13) as 
    an example, the following 4 reference files should be 
    downloaded (http://www.gencodegenes.org/releases/19.html):
+   
    (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are
        the same as in the GTFs): GRCh37.p13.genome.fa.gz
        
