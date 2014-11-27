@@ -46,31 +46,31 @@ GitHub: https://github.com/TreesLab/NCLscan
    151
    00
    ```
- Note: The final two parameters, 151 and 500, indicate the maximal read length and fragment 
- size of the used paired-ended RNA-seq data (FASTQ files). If the read length (L) < 151 bp and
- fragment size <= 500 bp, the users don't need to change these two values. If L > 150, 
- the users should change these two parameters to (L+1, L*2 + insert size).
+   Note: The final two parameters, 151 and 500, indicate the maximal read length and fragment 
+   size of the used paired-ended RNA-seq data (FASTQ files). If the read length (L) < 151 bp and
+   fragment size <= 500 bp, the users don't need to change these two values. If L > 150, 
+   the users should change these two parameters to (L+1, L*2 + insert size).
  
- 2.3 Setting
+   2.3 Setting
  
- All the reference files, the config.txt and the used paired-end RNA-seq data should put in 
- the same sub-directory where NCLscan executes.
+   All the reference files, the config.txt and the used paired-end RNA-seq data should put in 
+   the same sub-directory where NCLscan executes.
 
 3. NCLscan pipeline
 
-The NCLscan pipeline includes six steps, which are all involved in the batch file: NCLscan.sh
+   The NCLscan pipeline includes six steps, which are all involved in the batch file: NCLscan.sh
 
-Usage:
->./NCLscan.sh 01.fastq 02.fastq MyProject 20
+   Usage:
+   >./NCLscan.sh 01.fastq 02.fastq MyProject 20
 
-Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq data. MyProject is
-the prefix of output filenames (for example). The final parameter, 20, means the cutoff of 
-sequence quality score of reads for the RNA-seqs. The users can changes this cutoff quality score 
-depends on their cases. If 0 is given, it means no filtering any sequences.
+  Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq data. MyProject is
+  the prefix of output filenames (for example). The final parameter, 20, means the cutoff of 
+  sequence quality score of reads for the RNA-seqs. The users can changes this cutoff quality score 
+  depends on their cases. If 0 is given, it means no filtering any sequences.
 
-The six steps and their usages are explained as following:
+  The six steps and their usages are explained as following:
 
-Step 1: NCL_Scan0
+  * Step 1: NCL_Scan0
 Aligning reads against the reference genome and the annotated transcripts by BWA. BWA needs its 
 own reference genome to do mapping. This reference genome (GRCh37.p13) file can be downloaded from
 our FTP site (“bwa_AllRef.fa”), or other websites which provide whole genome data (such as GENCODE,
