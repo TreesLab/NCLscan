@@ -23,17 +23,20 @@ The NCLscan pipeline is executed on the 64-bit Linux operation system (e.g., Bio
 
    2.2 Configuration 
        The four reference sequence datasets and two RNA-seqs parameters are listed in order in “config.txt”. The content of config.txt is just like:
-
        GRCh37.p13.genome.fa
        gencode.v19.pc_transcripts.fa
        gencode.v19.lncRNA_transcripts.fa
        gencode.v19.annotation.gtf
        151
        500
-
+        
        Note: The final two parameters, 151 and 500, indicate the maximal read length and fragment size of the used paired-ended RNA-seq data (FASTQ files). 
        If the read length (L) < 151 bp and fragment size <= 500 bp, the users don't need to change these two values. If L > 150, the users should change these two parameters to (L+1, L*2 + insert size).
 
+       
+       
+
+       
   2.3 Setting
       All the reference files, the config.txt and the used paired-end RNA-seq data should put in the same sub-directory where NCLscan executes.
 
