@@ -18,7 +18,7 @@ GitHub: https://github.com/TreesLab/NCLscan
 
 2. Preparation
 
-   2.1 Reference sequences
+⋅⋅ 2.1. Reference sequences
    
    The genomic sequences (FASTA files) were downloaded from the GENCODE website at 
    http://www.gencodegenes.org/. Taking the human reference genome (GRCh37.p13) as 
