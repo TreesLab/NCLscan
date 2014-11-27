@@ -1,6 +1,6 @@
 NCLscan
 =======
-a pipeline to detect trans-splicing and ciricular RNA using rna-seq
+## a pipeline to detect trans-splicing and ciricular RNA using rna-seq
 --------------
 Manual of NCLscan pipeline
 --------------
