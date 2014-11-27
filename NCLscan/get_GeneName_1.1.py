@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# version: 1.1
+# version: 1.1.1
 
 from __future__ import print_function
 
@@ -12,7 +12,7 @@ import optparse
 from signal import signal, SIGPIPE, SIG_DFL
 signal(SIGPIPE,SIG_DFL)
 
-def get_Gene_Name(in_file, out_file, anno_file, to_stdout=False, gene_sep='|'):
+def get_Gene_Name(in_file, out_file, anno_file, to_stdout=False, gene_sep=','):
     # read annotation data
     with open(anno_file) as data_reader:
         anno_raw_data = data_reader.read()
@@ -62,7 +62,7 @@ def main():
     p.add_option('-i', dest='input', help='Input the result of NCL_Scan.')
     p.add_option('-o', dest='output', help='The output file.')
     p.add_option('-a', dest='anno', help='The annotaion file (.gtf).')
-    p.add_option('-s', dest='gene_sep', help='Separator of gene names. Default "|"')
+    p.add_option('-s', dest='gene_sep', help='Separator of gene names. Default ","')
     p.add_option('--stdout', dest='stdout', action='store_true', help='Send the output to stdout.')
     opts, args = p.parse_args()
 
@@ -71,7 +71,7 @@ def main():
     else:
         try:
             with open('config.tmp') as config_tmp:
-                pj_name = re.sub('\r?\n?$', config_tmp.readlines()[2])
+                pj_name = re.sub('\r?\n?$', '', config_tmp.readlines()[2])
         except IOError:
             print("Error: No such file 'config.tmp', or you may just assign an input file.\n")
             p.print_help()
@@ -88,7 +88,7 @@ def main():
     else:
         try:
             with open('config.txt') as config_txt:
-                anno_file = re.sub('\r?\n?', config_txt.readlines()[3])
+                anno_file = re.sub('\r?\n?', '', config_txt.readlines()[3])
         except IOError:
             print("Error: No such file 'config.txt', or you may just assign an annotation file (in GTF format).\n")
             p.print_help()
