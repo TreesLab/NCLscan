@@ -38,14 +38,14 @@ GitHub: https://github.com/TreesLab/NCLscan
  
    The four reference sequence datasets and two RNA-seqs parameters are listed in order 
    in “config.txt”. The content of config.txt is just like:
- 
-   > GRCh37.p13.genome.fa
-   > gencode.v19.pc_transcripts.fa
-   > gencode.v19.lncRNA_transcripts.fa
-   > gencode.v19.annotation.gtf
-   > 151
-   > 500
-   
+   ```txt
+   GRCh37.p13.genome.fa
+   gencode.v19.pc_transcripts.fa
+   gencode.v19.lncRNA_transcripts.fa
+   gencode.v19.annotation.gtf
+   151
+   00
+   ```
  Note: The final two parameters, 151 and 500, indicate the maximal read length and fragment size of the used 
  paired-ended RNA-seq data (FASTQ files). If the read length (L) < 151 bp and fragment size <= 500 bp, 
  the users don't need to change these two values. If L > 150, the users should change these two parameters 
