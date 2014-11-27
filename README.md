@@ -57,7 +57,6 @@ GitHub: https://github.com/TreesLab/NCLscan
    the same sub-directory where NCLscan executes.
 
 3. NCLscan pipeline
-
    The NCLscan pipeline includes six steps, which are all involved in the batch file: NCLscan.sh
 
    Usage:
@@ -82,42 +81,48 @@ GitHub: https://github.com/TreesLab/NCLscan
    >./NCL_Scan0.sh 01.fastq 02.fastq MyProject
 
    **Step 2: NCL_Scan1**
+   
    Aligning the reads unmapped by BWA against the reference genome and the annotated transcripts by Novoalign.
 
    Usage:
    > NCL_Scan1 MyProject.bwa.unmapped_1.fastq MyProject.bwa.unmapped_2.fastq MyProject
 
    **Step 3: NCL_Scan2**
+   
    Concatenating the two ends for each unmapped read and Blat-aligning the concatenated sequences against 
    the reference genome. Removing concatenated sequences with an alternative co-linear explanation. 
    Note: A cutoff of sequence quality score of reads for the RNA-seqs is given. 
 
    Usage:
-> NCL_Scan2 20
+   > NCL_Scan2 20
 
-Step 4: NCL_Scan3
-Boundary sorting and aligning to find putative Non-co-linear (NCL) junction sites.
+   **Step 4: NCL_Scan3**
+   
+   Boundary sorting and aligning to find putative Non-co-linear (NCL) junction sites.
+   
+   Usage:
+   > NCL_Scan3
 
-Usage:
-> NCL_Scan3
+   **Step 5: NCL_Scan4**
+   
+   Filtering and retaining the putative NCL sequences which satisfy all our criterions. 
 
-Step 5: NCL_Scan4
-Filtering and retaining the putative NCL sequences which satisfy all our criterions. 
+   Usage:
+   > NCL_Scan4
 
-Usage:
-> NCL_Scan4
+   **Step 6: Add_gene_name**
+   
+   Append gene name in the final result according to the gene annotation.
 
-Step 6: Add_gene_name
-Append gene name in the final result according to the gene annotation.
-
-Usage:
-> ./get_GeneName_1.1.py
+   Usage:
+   > ./get_GeneName_1.1.py
 
 
 4. NCLscan Outputs
 
-Two output files are generated after executing the pipeline: a tab-delimited text "MyProject.result.gene_name", 
-and a SAM-format file “MyProject.result.sam” which contains the supporting reads of the identified non-co-linear events.
+  Two output files are generated after executing the pipeline: a tab-delimited text "MyProject.result.gene_name", 
+  and a SAM-format file “MyProject.result.sam” which contains the supporting reads of the identified non-co-linear    
+  events.
 
 The format of "MyProject.result.gene_name" is descripted as (table schema for each column):
 (1) Reference Sequence name to identify each non-co-linear event found
