@@ -70,12 +70,13 @@ GitHub: https://github.com/TreesLab/NCLscan
 
   The six steps and their usages are explained as following:
 
-  Step 1: NCL_Scan0\\
-Aligning reads against the reference genome and the annotated transcripts by BWA. BWA needs its 
-own reference genome to do mapping. This reference genome (GRCh37.p13) file can be downloaded from
-our FTP site (“bwa_AllRef.fa”), or other websites which provide whole genome data (such as GENCODE,
-UCSC, and etc.). If other reference genome for BWA was used, then changing the FASTA filename into 
-“bwa_AllRef.fa” and putting in the same sub-directory where NCLscan executes.
+  Step 1: NCL_Scan0
+  
+  Aligning reads against the reference genome and the annotated transcripts by BWA. BWA needs its 
+  own reference genome to do mapping. This reference genome (GRCh37.p13) file can be downloaded from
+  our FTP site (“bwa_AllRef.fa”), or other websites which provide whole genome data (such as GENCODE,
+  UCSC, and etc.). If other reference genome for BWA was used, then changing the FASTA filename into 
+  “bwa_AllRef.fa” and putting in the same sub-directory where NCLscan executes.
 
 Usage:
 >./NCL_Scan0.sh 01.fastq 02.fastq MyProject
