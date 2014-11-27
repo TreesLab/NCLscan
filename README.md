@@ -13,10 +13,9 @@ The package of NCLscan and the preparation of reference sequences can be downloa
 The NCLscan pipeline is executed on the 64-bit Linux operation system (e.g., Bio-Linux 6; also see http://nebc.nerc.ac.uk/ for further details). The three used aligners (i.e., BWA, Novoalign, and BLAT) were involved in the package of NCLscan. They were downloaded from http://bio-bwa.sourceforge.net/, http://www.novocraft.com, and https://genome.ucsc.edu, respectively.
 
 2. Preparation
-
    2.1 Reference sequences 
        The genomic sequences (FASTA files) were downloaded from the GENCODE website at http://www.gencodegenes.org/. 
-       Taking the human reference genome (GRCh37.p13) as an example, the following 4 reference files should be downloaded (http://www.gencodegenes.org/releases/19.html):
+       Taking the human reference genome (GRCh37.p13) as an example, the following 4 reference files should be downloaded (http://www.gencodegenes.org/releases/19.html):\\
        (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are the same as in the GTFs): GRCh37.p13.genome.fa.gz
        (2) Protein-coding transcript sequences in FASTA format: gencode.v19.pc_transcripts.fa.gz
        (3) Long non-coding RNAs in FASTA format: gencode.v19.lncRNA_transcripts.fa.gz
@@ -50,11 +49,12 @@ Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq dat
 
 The six steps and their usages are explained as following:
 
-	Step 1: NCL_Scan0
+	
+        Step 1: NCL_Scan0
         Aligning reads against the reference genome and the annotated transcripts by BWA. BWA needs its own reference genome to do mapping. This reference genome (GRCh37.p13) file can be downloaded from our FTP site (“bwa_AllRef.fa”), or other websites which provide whole genome data (such as GENCODE, UCSC, and etc.). If other reference genome for BWA was used, then changing the FASTA filename into “bwa_AllRef.fa” and putting in the same sub-directory where NCLscan executes.
-
-	Usage:
-	>./NCL_Scan0.sh 01.fastq 02.fastq MyProject
+	
+        Usage:
+        >./NCL_Scan0.sh 01.fastq 02.fastq MyProject
 
         Step 2: NCL_Scan1
         Aligning the reads unmapped by BWA against the reference genome and the annotated transcripts by Novoalign.
@@ -86,6 +86,7 @@ The six steps and their usages are explained as following:
 
         Usage:
         > ./get_GeneName_1.1.py
+
 
 4. NCLscan Outputs
   
