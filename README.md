@@ -21,10 +21,10 @@ The package of NCLscan and the preparation of reference sequences can be downloa
    
        2.1.1 Reference sequences for NCLscan
        
-             The genomic sequences (FASTA files) were downloaded from the GENCODE website at  
-             http://www.gencodegenes.org/. Taking the human reference genome (GRCh37.p13) as 
-             an example, the following 4 reference files should be downloaded  
-             (http://www.gencodegenes.org/releases/19.html):
+       The genomic sequences (FASTA files) were downloaded from the GENCODE website at  
+       http://www.gencodegenes.org/. Taking the human reference genome (GRCh37.p13) as 
+       an example, the following 4 reference files should be downloaded  
+       (http://www.gencodegenes.org/releases/19.html):
              
              ```
               (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are the same 
