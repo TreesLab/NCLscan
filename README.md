@@ -40,6 +40,7 @@ The package of NCLscan and the preparation of reference sequences can be downloa
           
    
    2.2. Configuration 
+   
    The 4 reference files stated in 2.1.1 and 2 parameters are listed in order in “config.txt” as follows:
    
         GRCh37.p13.genome.fa
@@ -53,6 +54,7 @@ The package of NCLscan and the preparation of reference sequences can be downloa
     users don't need to change these two parameters. If L > 151, the users should change these two parameters to          (L, L*2 + insert size).
 
    2.3 Setting
+   
    All the 4 reference files stated in 2.1.1, mapping index files stated in 2.1.2, (i.e., “bwa_AllRef.fa*”), 
    the config.txt and the used paired-end RNA-seq data should be put in the same sub-directory where NCLscan   
    executes.
