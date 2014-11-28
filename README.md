@@ -34,31 +34,28 @@ The package of NCLscan and the preparation of reference sequences can be downloa
              
      2.1.2. Reference sequences for BWA
        
-        Before executing BWA alignment, the users need to create mapping index files for the reference genome.                For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and                  accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). The users can also perform               the following command to get the index files (“bwa_AllRef.fa*”):
+    Before executing BWA alignment, the users need to create mapping index files for the reference genome.                For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and                  accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). The users can also perform               the following command to get the index files (“bwa_AllRef.fa*”):
              
-             ```
-             >bwa index bwa_AllRef.fa
-             ```
+          >bwa index bwa_AllRef.fa
+          
    
    2.2. Configuration 
+   The 4 reference files stated in 2.1.1 and 2 parameters are listed in order in “config.txt” as follows:
    
-        The 4 reference files stated in 2.1.1 and 2 parameters are listed in order in “config.txt” as follows:
-        ```
         GRCh37.p13.genome.fa
         gencode.v19.pc_transcripts.fa
         gencode.v19.lncRNA_transcripts.fa
         gencode.v19.annotation.gtf
         151
         00
-        ```
-        Note: The final two parameters, 151 and 500, indicate the maximal read length and fragment size of the used           paired-ended RNA-seq data (FASTQ files). If the read length (L) <= 151 bp and fragment size <= 500 bp, the    
-        users don't need to change these two parameters. If L > 151, the users should change these two parameters to          (L, L*2 + insert size).
+        
+    Note: The final two parameters, 151 and 500, indicate the maximal read length and fragment size of the used           paired-ended RNA-seq data (FASTQ files). If the read length (L) <= 151 bp and fragment size <= 500 bp, the    
+    users don't need to change these two parameters. If L > 151, the users should change these two parameters to          (L, L*2 + insert size).
 
    2.3 Setting
- 
-        All the 4 reference files stated in 2.1.1, mapping index files stated in 2.1.2, (i.e., “bwa_AllRef.fa*”), 
-        the config.txt and the used paired-end RNA-seq data should be put in the same sub-directory where NCLscan   
-        executes.
+   All the 4 reference files stated in 2.1.1, mapping index files stated in 2.1.2, (i.e., “bwa_AllRef.fa*”), 
+   the config.txt and the used paired-end RNA-seq data should be put in the same sub-directory where NCLscan   
+   executes.
    
 
 3. **NCLscan pipeline**
