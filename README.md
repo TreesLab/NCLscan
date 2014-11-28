@@ -25,6 +25,7 @@ The package of NCLscan and the preparation of reference sequences can be downloa
              http://www.gencodegenes.org/. Taking the human reference genome (GRCh37.p13) as 
              an example, the following 4 reference files should be downloaded  
              (http://www.gencodegenes.org/releases/19.html):
+             
              ```
               (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are the same 
                   as in the GTFs): GRCh37.p13.genome.fa.gz
@@ -32,9 +33,11 @@ The package of NCLscan and the preparation of reference sequences can be downloa
               (3) Long non-coding RNAs: gencode.v19.lncRNA_transcripts.fa.gz
               (4) Gene annotation: gencode.v19.annotation.gtf.gz
              ```
+             
        2.1.2 Reference sequences for BWA
        
              Before executing BWA alignment, the users need to create mapping index files for the reference genome.                For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and                  accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). The users can also perform               the following command to get the index files (“bwa_AllRef.fa*”):
+             
              ```
              >bwa index bwa_AllRef.fa
              ```
