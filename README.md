@@ -50,8 +50,10 @@ The package of NCLscan and the preparation of reference sequences can be downloa
         151
         00
         
-    Note: The final two parameters, 151 and 500, indicate the maximal read length and fragment size of the used           paired-ended RNA-seq data (FASTQ files). If the read length (L) <= 151 bp and fragment size <= 500 bp, the    
-    users don't need to change these two parameters. If L > 151, the users should change these two parameters to          (L, L*2 + insert size).
+    Note: The final two parameters, 151 and 500, indicate the maximal read length and fragment size of the used      
+    paired-ended RNA-seq data (FASTQ files). If the read length (L) <= 151 bp and fragment size <= 500 bp, the    
+    users don't need to change these two parameters. 
+    If L > 151, the users should change these two parameters to (L, L*2 + insert size).
 
    2.3 Setting
    
