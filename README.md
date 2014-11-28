@@ -17,25 +17,24 @@ The package of NCLscan and the preparation of reference sequences can be downloa
  
 2. **Preparation**
 
-   2.1. Reference sequences
+  2.1. Reference sequences
    
-     2.1.1. Reference sequences for NCLscan
+    2.1.1. Reference sequences for NCLscan
        
         The genomic sequences (FASTA files) were downloaded from the GENCODE website at  
         http://www.gencodegenes.org/. Taking the human reference genome (GRCh37.p13) as 
-        an example, the following 4 reference files should be downloade     
-        (http://www.gencodegenes.org/releases/19.html):
+        an example, the following 4 reference files should be downloade(http://www.gencodegenes.org/releases/19.html):
              
-              (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are the same 
-                  as in the GTFs): GRCh37.p13.genome.fa.gz
-              (2) Protein-coding transcript sequences: gencode.v19.pc_transcripts.fa.gz
-              (3) Long non-coding RNAs: gencode.v19.lncRNA_transcripts.fa.gz
-              (4) Gene annotation: gencode.v19.annotation.gtf.gz
+        (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are the same 
+            as in the GTFs): GRCh37.p13.genome.fa.gz
+        (2) Protein-coding transcript sequences: gencode.v19.pc_transcripts.fa.gz
+        (3) Long non-coding RNAs: gencode.v19.lncRNA_transcripts.fa.gz
+        (4) Gene annotation: gencode.v19.annotation.gtf.gz
           
              
      2.1.2. Reference sequences for BWA
        
-             Before executing BWA alignment, the users need to create mapping index files for the reference genome.                For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and                  accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). The users can also perform               the following command to get the index files (“bwa_AllRef.fa*”):
+        Before executing BWA alignment, the users need to create mapping index files for the reference genome.                For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and                  accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). The users can also perform               the following command to get the index files (“bwa_AllRef.fa*”):
              
              ```
              >bwa index bwa_AllRef.fa
@@ -139,7 +138,7 @@ The package of NCLscan and the preparation of reference sequences can be downloa
    Note: This program appends gene name in the final result (i.e., "MyProject.result.gene_name") according to the
    gene annotation.
    
-4. NCLscan Outputs
+4. **NCLscan Outputs**
 
    Two output files are generated after executing the pipeline: "MyProject.result.gene_name" (tab-delimited text file)    and “MyProject.result.sam” (SAM-format file). The former is the list of the identified NCL events, and the latter     records the supporting reads of the identified NCL events. For the SAM format, users can see    
    http://samtools.github.io/hts-specs/SAMv1.pdf for further details.
