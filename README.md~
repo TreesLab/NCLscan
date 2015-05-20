@@ -1,7 +1,7 @@
-NCLscan
+#NCLscan
 ######Verion:1.2 (2015/05/10) 
 =======
-##### a pipeline to detect trans-splicing and ciricular RNA using RNA-seqs
+#### a pipeline to detect trans-splicing and ciricular RNA using RNA-seqs
 --------------
 ### Manual of NCLscan pipeline
 --------------
