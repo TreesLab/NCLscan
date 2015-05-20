@@ -35,7 +35,8 @@ The package of NCLscan and the preparation of reference sequences can be downloa
              
      2.1.2. Reference sequences for BWA
        
-    Before executing BWA alignment, the users need to create mapping index files for the reference genome.                For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and                  accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). The users can also perform               the following command to get the index files (“bwa_AllRef.fa*”):
+    Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) 
+    has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). The users can also perform the following command to get the index files (“bwa_AllRef.fa*”):
              
           >bwa index bwa_AllRef.fa
           
@@ -57,7 +58,7 @@ users don't need to change these two parameters. If L > 151, the users should ch
    2.3 Setting
    
    All the 4 reference files stated in 2.1.1, mapping index files stated in 2.1.2, (i.e., “bwa_AllRef.fa*”), 
-   the config.txt and the used paired-end RNA-seq data should be put in the same sub-directory where NCLscan   
+   the config.txt and the used paired-end RNA-seq data should be put in the same sub-directory where NCLscan
    executes.
    
 
@@ -69,9 +70,10 @@ users don't need to change these two parameters. If L > 151, the users should ch
    ```
    >./NCLscan.sh 01.fastq 02.fastq MyProject 20 "-t 8"
    ```
-   Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq data. NCLscan outputs two main  
-   results: "MyProject.result" and "MyProject.result.sam". MyProject is the prefix of all output filenames.    The forth parameter (e.g., 20) means the cutoff of sequence quality score of the considered RNA-seq reads. 
-   The users can changes this cutoff quality score depends on their cases. If 0 is given, it means that all reads are    considered in NCLscan. 
+   Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq data. NCLscan outputs two main
+   results: "MyProject.result" and "MyProject.result.sam". MyProject is the prefix of all output filenames. 
+   The forth parameter (e.g., 20) means the cutoff of sequence quality score of the considered RNA-seq reads. 
+   The users can changes this cutoff quality score depends on their cases. If 0 is given, it means that all reads are considered in NCLscan. 
    The fifth parameter (e.g. "-t 8") are the options for BWA to define how many threads are used, and be careful that the quotes("") are needed.
   
 
@@ -110,7 +112,7 @@ users don't need to change these two parameters. If L > 151, the users should ch
    ```
    > NCL_Scan3
    ```
-   Note: NCL_Scan3 makes putative NCL references with putative NCL junction sites for each retained   
+   Note: NCL_Scan3 makes putative NCL references with putative NCL junction sites for each retained 
    concatenated-sequence.
    
    **Step 5: NCL_Scan4**
@@ -126,7 +128,7 @@ users don't need to change these two parameters. If L > 151, the users should ch
      an alternative co-linear explanation; (2) at least one read confirms the junction site; and (3) the collection
      of the supported reads must span the NCL junction boundary by ³ 50 bp on both sides of the junction site
    * aligning the retrieved putative NCL references against the reference genome with a different set of BLAT     
-     parameters  
+     parameters
    * removing candidates with an alternative co-linear explanation within a single gene or between-in two close genes
 
    
