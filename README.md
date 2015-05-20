@@ -4,7 +4,7 @@
 #### a pipeline to detect trans-splicing and ciricular RNA using RNA-seqs
 --------------
 #### Manual of NCLscan pipeline
---------------
+
 The package of NCLscan and the preparation of reference sequences can be downloaded from our FTP site: ftp://treeslab1.genomics.sinica.edu.tw/NCLscan or GitHub: https://github.com/TreesLab/NCLscan
 
 
