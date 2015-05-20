@@ -35,8 +35,8 @@ The package of NCLscan and the preparation of reference sequences can be downloa
              
      2.1.2. Reference sequences for BWA
        
-    Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). 
-    The users can also perform the following command to get the index files (“bwa_AllRef.fa*”):
+    Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa/*”) has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). 
+    The users can also perform the following command to get the index files (“bwa_AllRef.fa\*”):
              
           >bwa index bwa_AllRef.fa
           
