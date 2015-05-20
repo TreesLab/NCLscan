@@ -1,0 +1,7 @@
+GRCh37.p13.genome.fa
+gencode.v19.pc_transcripts.fa
+gencode.v19.lncRNA_transcripts.fa
+gencode.v19.annotation.gtf
+151
+500
+
