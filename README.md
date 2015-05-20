@@ -35,8 +35,8 @@ The package of NCLscan and the preparation of reference sequences can be downloa
              
      2.1.2. Reference sequences for BWA
        
-    Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) 
-    has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). The users can also perform the following command to get the index files (“bwa_AllRef.fa*”):
+    Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa”) has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn). 
+    The users can also perform the following command to get the index files (“bwa_AllRef.fa*”):
              
           >bwa index bwa_AllRef.fa
           
@@ -74,7 +74,7 @@ users don't need to change these two parameters. If L > 151, the users should ch
    results: "MyProject.result" and "MyProject.result.sam". MyProject is the prefix of all output filenames. 
    The forth parameter (e.g., 20) means the cutoff of sequence quality score of the considered RNA-seq reads. 
    The users can changes this cutoff quality score depends on their cases. If 0 is given, it means that all reads are considered in NCLscan. 
-   The fifth parameter (e.g. "-t 8") are the options for BWA to define how many threads are used, and be careful that the quotes("") are needed.
+   The fifth parameter (e.g. "-t 8") are the options for BWA to define how many threads are used, and be careful that the quotes(" ") are needed.
   
 
   The six steps and their usages are explained as following:
