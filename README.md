@@ -22,12 +22,11 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
    (4) BWA (http://bio-bwa.sourceforge.net/)
    (5) Novoalign, novoindex, and novoalign license file (http://www.novocraft.com/)
 ```
-   
-    These executable files of bedtools, samtools, blat, bwa, novoalign, novoindex, and novoalign.lic should be copied to the     file directory of NCLscan.
+   These executable files of bedtools, samtools, blat, bwa, novoalign, novoindex, and novoalign.lic should be copied to the     file directory of NCLscan.
 
    Note: Novoalign is a commercial bioinformatics tool. It can be requested for a limited license for academic/non-profit       researches.
 
-  3. **Installation**
+ 3.  **Installation**
 
   The users can download NCLscan_v1.3.tar.gz file and unzip it.
   
