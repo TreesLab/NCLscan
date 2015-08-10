@@ -15,13 +15,13 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
  2. **Software requirements**
 
    The following five tools are involved in the NCLscan pipeline:
-
+```
    (1) Bedtools (http://bedtools.readthedocs.org/en/latest/)
    (2) Samtools (http://www.htslib.org/)
    (3) BLAT (https://genome.ucsc.edu)
    (4) BWA (http://bio-bwa.sourceforge.net/)
    (5) Novoalign, novoindex, and novoalign license file (http://www.novocraft.com/)
-
+```
    These executable files of bedtools, samtools, blat, bwa, novoalign, novoindex, and novoalign.lic should be copied to the     file directory of NCLscan.
 
    Note: Novoalign is a commercial bioinformatics tool. It can be requested for a limited license for academic/non-profit       researches.
