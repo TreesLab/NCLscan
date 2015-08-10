@@ -83,7 +83,7 @@ The users can also generate index (“bwa_AllRef.fa*”) by themselves using the
 
    Usage:
 
-          >./NCLscan.sh [Fastq1] [Fastq2] [ProjectName] [QualityScore] [BWAthread] [SpaneRange]
+          >./NCLscan.sh [Fastq1] [Fastq2] [ProjectName] [QualityScore] [BWAthread] [SpanRange]
 
    An example:
 
