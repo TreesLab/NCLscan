@@ -45,9 +45,9 @@ Unzip these 4 reference files, and move them into the file directory of NCLscan.
 
 The human reference files could also be downloaded from our FTP website (ftp://treeslab1.genomics.sinica.edu.tw/NCLscan/NCLscan_reference)
 
-         > tar jxvf NCLscan_reference_hg19.tar.bz2
-         > cd /path/to/NCLscan_reference_hg19
-         > mv . /path/to/NCLscan_v1.3 
+           > tar jxvf NCLscan_reference_hg19.tar.bz2
+           > cd /path/to/NCLscan_reference_hg19
+           > mv . /path/to/NCLscan_v1.3 
 
 
  **3.2.  Configuration**
