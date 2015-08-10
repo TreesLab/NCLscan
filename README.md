@@ -69,7 +69,7 @@ If L > 151, the users should change these two parameters to (L, 2*L + insert siz
  
 Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn/BWAindex/). 
 
-    >tar jxvf NCLscan_bwa_index_hg19.tar.bz2
+    > tar jxvf NCLscan_bwa_index_hg19.tar.bz2
     > cd /path/to/NCLscan_bwa_index_hg19
     > mv . /path/to/NCLscan_v1.3
 
@@ -104,10 +104,12 @@ Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq dat
   ```
   The final result will be generated as a “test_NCLscan.result” file.
 
-5. NCLscan outputs
-     Two output files are generated after executing the pipeline: "MyProject.result" (tab-delimited text file) and “MyProject.result.sam” (SAM-format file). The former is the list of the identified NCL events, and the latter records the supporting reads of the identified NCL events. For the SAM format, users can see http://samtools.github.io/hts-specs/SAMv1.pdf for further details.
+####**5. NCLscan outputs**
+
+Two output files are generated after executing the pipeline: "MyProject.result" (tab-delimited text file) and “MyProject.result.sam” (SAM-format file). The former is the list of the identified NCL events, and the latter records the supporting reads of the identified NCL events. For the SAM format, users can see http://samtools.github.io/hts-specs/SAMv1.pdf for further details.
 
 The column format of "MyProject.result" is described as follows:
+```
 (1) Chromosome name of the donor side (5'ss) 
 (2) Junction coordinate of the donor side
 (3) Strand of the donor side
@@ -117,6 +119,7 @@ The column format of "MyProject.result" is described as follows:
 (7) Gene name of the donor side
 (8) Gene name of the acceptor side
 (9) Intragenic (1) or intergenic (0) case
+```
 
 6. The detailed description of the NCLscan pipeline
    The NCLscan pipeline includes six steps, which are all involved in the batch file (NCLscan.sh). The six steps and their usages are explained as follows:
