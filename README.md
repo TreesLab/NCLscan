@@ -66,7 +66,8 @@ Note: The final two parameters, 151 and 500, indicate the maximal read length (L
 If L > 151, the users should change these two parameters to (L, 2*L + insert size).
 
  **3.3.  BWA index preparation**
-     Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn/BWAindex/). 
+ 
+Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn/BWAindex/). 
 
     >tar jxvf NCLscan_bwa_index_hg19.tar.bz2
     > cd /path/to/NCLscan_bwa_index_hg19
