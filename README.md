@@ -32,7 +32,8 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
   
           > tar xvzf NCLscan_v1.3.tar.gz
 
-  3.1.  Reference preparation
+   *3.1.  Reference preparation*
+   
       The genomic sequences and annotation were downloaded from the GENCODE website at http://www.gencodegenes.org/. Given the   human reference genome (GRCh37.p13, http://www.gencodegenes.org/releases/19.html) as an example, the following four reference files are required:
 ```
    (1) Genome sequence FASTA file in GRCh37.p13 assembly (sequence region names are the same as in the GTFs): GRCh37.p13.genome.fa.gz
