@@ -50,7 +50,7 @@ The human reference files could also be downloaded from our FTP website (ftp://t
          > mv . /path/to/NCLscan_v1.3 
 
 
- ** 3.2.  Configuration**
+ **3.2.  Configuration**
 
 The above four reference files and two parameters are listed in “config.txt” as follows:
 
