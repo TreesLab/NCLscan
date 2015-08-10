@@ -126,44 +126,56 @@ The column format of "MyProject.result" is described as follows:
 The NCLscan pipeline includes six steps, which are all involved in the batch file (NCLscan.sh). The six steps and their usages are explained as follows:
 
    **Step 1:** NCL_Scan0
+   
 Usage:
 ```
 >./NCL_Scan0.sh 01.fastq 02.fastq MyProject
 ```
 Note: NCL_Scan0 aligns the reads against the reference genome and the annotated transcripts using BWA. 
 	
-    Step 2: NCL_Scan1:  
+   **Step 2:** NCL_Scan1
+   
 Usage:
+```
 > NCL_Scan1 MyProject.bwa.unmapped_1.fastq MyProject.bwa.unmapped_2.fastq MyProject
-
+```
 Note: NCL_Scan1 aligns the BWA-unmapped reads against the reference genome and the annotated transcripts using Novoalign.
 
-   Step 3: NCL_Scan2
-Usage:
-> NCL_Scan2 20
+  **Step 3:** NCL_Scan2
 
+Usage:
+```
+> NCL_Scan2 20
+```
 Note: NCL_Scan2 includes three steps: (1) concatenating the two ends of each unmapped read; (2) BLAT-aligning the concatenated sequences against the reference genome; and (3) removing the concatenated sequences with an alternative co-linear explanation. If a read contains a base with sequence quality score that is smaller than the cutoff value (default: 20), such a read is not considered.
 
-   Step 4: NCL_Scan3
-Usage:
-> NCL_Scan3
+  ** Step 4:** NCL_Scan3
 
+Usage:
+```
+> NCL_Scan3
+```
 Note: NCL_Scan3 generates putative NCL references with putative NCL junction sites for the retained concatenated-sequences.
 
-   Step 5: NCL_Scan4
+  **Step 5:** NCL_Scan4
+
 Usage:
+```
 > NCL_Scan4 50
-
+```
 Note: NCL_Scan4 includes the following steps: 
-1.	aligning unmapped reads against all the putative NCL references using Novoalign, 
-2.	retaining the putative NCL references that satisfy all of the three rules: (1) all mapped reads must not have any alternative co-linear explanation; (2) at least one read supports the junction site; and (3) the collection of the supported reads must span the NCL junction boundary by the setting size of span range (default: 50 bp) on both sides of the junction site,
-3.	aligning the retrieved putative NCL references against the reference genome with a different set of BLAT parameters  
-4.	removing candidates with an alternative co-linear explanation within a single gene or between-in two close genes.
+```
+1. aligning unmapped reads against all the putative NCL references using Novoalign, 
+2. retaining the putative NCL references that satisfy all of the three rules: (1) all mapped reads must not have any alternative co-linear explanation; (2) at least one read supports the junction site; and (3) the collection of the supported reads must span the NCL junction boundary by the setting size of span range (default: 50 bp) on both sides of the junction site
+3. aligning the retrieved putative NCL references against the reference genome with a different set of BLAT parameters  
+4. removing candidates with an alternative co-linear explanation within a single gene or between-in two close genes.
+```
+   **Step 6:** NCL_Scan5
 
-   Step 6: NCL_Scan5
 Usage:
+```
 >./NCL_Scan5.py
-
+```
 Note: This program appends gene names in the final result (i.e., "MyProject.result") according to the gene annotation.
 
  
