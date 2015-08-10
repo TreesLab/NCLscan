@@ -9,7 +9,7 @@ The NCLscan program, document, and test set can be downloaded from our FTP site:
 Please click "Download ZIP" button at the right side to download NCLscan tool. 
 
 1. **System requirements**
-   NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with  10 GB RAM.
+   NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with more than 10 GB RAM.
 
 2. **Software requirements**
    The following five tools are involved in the NCLscan pipeline:
@@ -25,7 +25,7 @@ Note: Novoalign is a commercial bioinformatics tool. It can be requested for a l
 
 3. **Installation**
    The users can download NCLscan_v1.3.tar.gz file and unzip it.
-> tar xvzf NCLscan_v1.3.tar.gz
+     > tar xvzf NCLscan_v1.3.tar.gz
 
   3.1.  Reference preparation
       The genomic sequences and annotation were downloaded from the GENCODE website at http://www.gencodegenes.org/. Given the   human reference genome (GRCh37.p13, http://www.gencodegenes.org/releases/19.html) as an example, the following four reference files are required:
