@@ -93,13 +93,15 @@ Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq dat
   ```
           > mkdir test_NCLscan
   ```
-   Step 2. The shortcuts of NCLscan_v1.3 are created in the test_project folder.
-  > cd test_NCLscan
-  > ln -s  /path/to/NCLscan_v1.3/* .
-
-   Step3. Run it
+  ** Step 2.** The shortcuts of NCLscan_v1.3 are created in the test_project folder.
+  ```
+          > cd test_NCLscan
+          > ln -s  /path/to/NCLscan_v1.3/* .
+  ```
+  **Step 3.** Run it
+  ```
   > ./NCLscan.sh /path/to/simu_5X_100PE_1.fastq /path/to/simu_5X_100PE_2.fastq test_NCLscan 0 8 50 2>&1 | tee  test_NCLscan.log
-
+  ```
   The final result will be generated as a “test_NCLscan.result” file.
 
 5. NCLscan outputs
