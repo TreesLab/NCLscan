@@ -9,9 +9,11 @@ The NCLscan program, document, and test set can be downloaded from our FTP site:
 Please click "Download ZIP" button at the right side to download NCLscan tool. 
 
 1. **System requirements**
+
 NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with more than 10 GB RAM.
 
 2. **Software requirements**
+
 The following five tools are involved in the NCLscan pipeline:
 (1) Bedtools (http://bedtools.readthedocs.org/en/latest/)
 (2) Samtools (http://www.htslib.org/)
