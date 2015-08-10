@@ -121,13 +121,15 @@ The column format of "MyProject.result" is described as follows:
 (9) Intragenic (1) or intergenic (0) case
 ```
 
-6. The detailed description of the NCLscan pipeline
-   The NCLscan pipeline includes six steps, which are all involved in the batch file (NCLscan.sh). The six steps and their usages are explained as follows:
+####**6. The detailed description of the NCLscan pipeline**
+   
+The NCLscan pipeline includes six steps, which are all involved in the batch file (NCLscan.sh). The six steps and their usages are explained as follows:
 
-   Step 1: NCL_Scan0
+   **Step 1:** NCL_Scan0
 Usage:
+```
 >./NCL_Scan0.sh 01.fastq 02.fastq MyProject
-
+```
 Note: NCL_Scan0 aligns the reads against the reference genome and the annotated transcripts using BWA. 
 	
     Step 2: NCL_Scan1:  
