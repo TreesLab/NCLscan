@@ -90,8 +90,9 @@ Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq dat
   A test RNA-seq dataset “simu_5X_100PE” is provided in the test folder. 
  
   **Step 1.** Create a test project folder
-               > mkdir test_NCLscan
-
+  ```
+          > mkdir test_NCLscan
+  ```
    Step 2. The shortcuts of NCLscan_v1.3 are created in the test_project folder.
   > cd test_NCLscan
   > ln -s  /path/to/NCLscan_v1.3/* .
