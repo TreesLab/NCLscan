@@ -149,7 +149,7 @@ Usage:
 ```
 Note: NCL_Scan2 includes three steps: (1) concatenating the two ends of each unmapped read; (2) BLAT-aligning the concatenated sequences against the reference genome; and (3) removing the concatenated sequences with an alternative co-linear explanation. If a read contains a base with sequence quality score that is smaller than the cutoff value (default: 20), such a read is not considered.
 
-  ** Step 4:** NCL_Scan3
+  **Step 4:** NCL_Scan3
 
 Usage:
 ```
