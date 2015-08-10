@@ -9,22 +9,22 @@ The NCLscan program, document, and test set can be downloaded from our FTP site:
 Please click "Download ZIP" button at the right side to download NCLscan tool. 
 
 1. **System requirements**
-   NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with more than 10 GB RAM.
+NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with more than 10 GB RAM.
 
 2. **Software requirements**
-   The following five tools are involved in the NCLscan pipeline:
+The following five tools are involved in the NCLscan pipeline:
 (1) Bedtools (http://bedtools.readthedocs.org/en/latest/)
 (2) Samtools (http://www.htslib.org/)
 (3) BLAT (https://genome.ucsc.edu)
 (4) BWA (http://bio-bwa.sourceforge.net/)
 (5) Novoalign, novoindex, and novoalign license file (http://www.novocraft.com/)
 
-These executable files of bedtools, samtools, blat, bwa, novoalign, novoindex, and novoalign.lic should be copied to the file directory of NCLscan.
+   These executable files of bedtools, samtools, blat, bwa, novoalign, novoindex, and novoalign.lic should be copied to the     file directory of NCLscan.
 
-Note: Novoalign is a commercial bioinformatics tool. It can be requested for a limited license for academic/non-profit researches.
+   Note: Novoalign is a commercial bioinformatics tool. It can be requested for a limited license for academic/non-profit       researches.
 
 3. **Installation**
-     The users can download NCLscan_v1.3.tar.gz file and unzip it.
+The users can download NCLscan_v1.3.tar.gz file and unzip it.
           > tar xvzf NCLscan_v1.3.tar.gz
 
   3.1.  Reference preparation
