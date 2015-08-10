@@ -8,7 +8,7 @@
 The NCLscan program, document, and test set can be downloaded from our FTP site: ftp://treeslab1.genomics.sinica.edu.tw/NCLscan or GitHub: https://github.com/TreesLab/NCLscan.
 Please click "Download ZIP" button at the right side to download NCLscan tool. 
 
-#**1. System requirements**
+###**1. System requirements**
 
    NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with more than 10 GB RAM.
 
