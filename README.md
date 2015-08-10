@@ -24,6 +24,7 @@ The following five tools are involved in the NCLscan pipeline:
    Note: Novoalign is a commercial bioinformatics tool. It can be requested for a limited license for academic/non-profit       researches.
 
 3. **Installation**
+
 The users can download NCLscan_v1.3.tar.gz file and unzip it.
           > tar xvzf NCLscan_v1.3.tar.gz
 
