@@ -8,7 +8,7 @@
 The NCLscan program, document, and test set can be downloaded from our FTP site: ftp://treeslab1.genomics.sinica.edu.tw/NCLscan or GitHub: https://github.com/TreesLab/NCLscan.
 Please click "Download ZIP" button at the right side to download NCLscan tool. 
 
-**1. System requirements**
+#**1. System requirements**
 
    NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with more than 10 GB RAM.
 
@@ -32,7 +32,7 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
   
           > tar xvzf NCLscan_v1.3.tar.gz
 
-   *3.1.  Reference preparation*
+   **3.1.  Reference preparation**
    
       The genomic sequences and annotation were downloaded from the GENCODE website at http://www.gencodegenes.org/. Given the   human reference genome (GRCh37.p13, http://www.gencodegenes.org/releases/19.html) as an example, the following four reference files are required:
 ```
