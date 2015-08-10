@@ -29,7 +29,7 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
 ####**3. Installation**
    The users can download NCLscan_v1.3.tar.gz file and unzip it.
   
-          > tar xvzf NCLscan_v1.3.tar.gz
+         > tar xvzf NCLscan_v1.3.tar.gz
 
  **3.1.  Reference preparation**
  
@@ -73,12 +73,13 @@ If L > 151, the users should change these two parameters to (L, 2*L + insert siz
     > mv . /path/to/NCLscan_v1.3
 
 The users can also generate index (“bwa_AllRef.fa*”) by themselves using the following command:
-> cd /path/to/NCLscan
-> ./MakeBwaRef
 
- 4. Execution of NCLscan
+    > cd /path/to/NCLscan
+    > ./MakeBwaRef
+####**4. Execution of NCLscan**
    Usage:
->./NCLscan.sh 01.fastq 02.fastq MyProject 20 8 50
+
+          >./NCLscan.sh 01.fastq 02.fastq MyProject 20 8 50
 
 Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq data. NCLscan outputs two main results: "MyProject.result" and "MyProject.result.sam". MyProject is the prefix of the output filenames. The fourth parameter means the cutoff of sequence quality score of the considered RNA-seq reads (default: 20). If a read contains a base with sequence quality score that is smaller than the cutoff value, such a read is not considered. If 0 is set, it means that all reads are considered. The fifth parameter is the number of used threads for BWA (default: 8). The sixth parameter is the size of span range (default: 50; see section 5).
 
