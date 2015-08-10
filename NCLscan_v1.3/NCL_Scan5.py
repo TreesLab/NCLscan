@@ -59,10 +59,15 @@ def get_parameter(config_file, key_num):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument('-g', '--gene_annotation', dest="gene_anno", help="Assign custom gene annotation GTF file.")
     args = parser.parse_args()
 
     pj_name = get_parameter('config.tmp', 2)
-    anno_file = get_parameter('config.txt', 3)
+
+    if args.gene_anno:
+        anno_file = args.gene_anno
+    else:
+        anno_file = get_parameter('config.txt', 3)
 
     os.system('mv {pj_name}.result {pj_name}.result.tmp'.format(pj_name=pj_name))
 
