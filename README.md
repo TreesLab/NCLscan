@@ -24,9 +24,8 @@ These executable files of bedtools, samtools, blat, bwa, novoalign, novoindex, a
 Note: Novoalign is a commercial bioinformatics tool. It can be requested for a limited license for academic/non-profit researches.
 
 3. **Installation**
-   The users can download NCLscan_v1.3.tar.gz file and unzip it.
-     
-   > tar xvzf NCLscan_v1.3.tar.gz
+     The users can download NCLscan_v1.3.tar.gz file and unzip it.
+          > tar xvzf NCLscan_v1.3.tar.gz
 
   3.1.  Reference preparation
       The genomic sequences and annotation were downloaded from the GENCODE website at http://www.gencodegenes.org/. Given the   human reference genome (GRCh37.p13, http://www.gencodegenes.org/releases/19.html) as an example, the following four reference files are required:
@@ -45,14 +44,14 @@ The human reference files could also be downloaded from our FTP website (ftp://t
 
  3.2. Configuration 
      The above four reference files and two parameters are listed in “config.txt” as follows:
-====================
-GRCh37.p13.genome.fa
-gencode.v19.pc_transcripts.fa
-gencode.v19.lncRNA_transcripts.fa
-gencode.v19.annotation.gtf
-151
-500
-=====================
+
+     GRCh37.p13.genome.fa
+     gencode.v19.pc_transcripts.fa
+     gencode.v19.lncRNA_transcripts.fa
+     gencode.v19.annotation.gtf
+     151
+     500
+
 
 Note: The final two parameters, 151 and 500, indicate the maximal read length (L) and fragment size of the used paired-ended RNA-seq data (FASTQ files), where fragment size = 2*L + insert size. 
 If L > 151, the users should change these two parameters to (L, 2*L + insert size).
