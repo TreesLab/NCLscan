@@ -1,9 +1,9 @@
-#NCLscan
+# Manual of NCLscan
 ###### Version:1.3 (2015/08/10) 
 
 #### We have developed a new pipeline, NCLscan, which is rather advantageous in the identification of both intragenic and intergenic "non-co-linear" (NCL) transcripts (fusion, trans-splicing, and circular RNA) from paired-end RNA-seq data. 
 --------------
-#### Manual of NCLscan
+#### 
 
 The NCLscan program, document, and test set can be downloaded from our FTP site: ftp://treeslab1.genomics.sinica.edu.tw/NCLscan or GitHub: https://github.com/TreesLab/NCLscan.
 Please click "Download ZIP" button at the right side to download NCLscan tool. 
