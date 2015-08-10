@@ -77,6 +77,7 @@ The users can also generate index (“bwa_AllRef.fa*”) by themselves using the
 
     > cd /path/to/NCLscan
     > ./MakeBwaRef
+    
 ####**4. Execution of NCLscan**
    Usage:
 
@@ -84,11 +85,12 @@ The users can also generate index (“bwa_AllRef.fa*”) by themselves using the
 
 Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq data. NCLscan outputs two main results: "MyProject.result" and "MyProject.result.sam". MyProject is the prefix of the output filenames. The fourth parameter means the cutoff of sequence quality score of the considered RNA-seq reads (default: 20). If a read contains a base with sequence quality score that is smaller than the cutoff value, such a read is not considered. If 0 is set, it means that all reads are considered. The fifth parameter is the number of used threads for BWA (default: 8). The sixth parameter is the size of span range (default: 50; see section 5).
 
-     An example of executing NCLscan:
-
-    A test RNA-seq dataset “simu_5X_100PE” is provided in the test folder. 
-  Step 1. Create a test project folder
-   > mkdir test_NCLscan
+  **An example of executing NCLscan:**
+  
+  A test RNA-seq dataset “simu_5X_100PE” is provided in the test folder. 
+ 
+  **Step 1.** Create a test project folder
+          > mkdir test_NCLscan
 
    Step 2. The shortcuts of NCLscan_v1.3 are created in the test_project folder.
   > cd test_NCLscan
