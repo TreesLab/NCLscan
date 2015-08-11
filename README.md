@@ -11,7 +11,7 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
 
 ####**1. System requirements**
 
-   NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with \pi*r^{2} 10 GB RAM.
+   NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with equal or greater than 10 GB RAM.
 
 ####**2. Software requirements**
 
