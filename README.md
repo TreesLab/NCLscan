@@ -11,7 +11,7 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
 
 ####**1. System requirements**
 
-   NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with equal or greater than 10 GB RAM.
+   NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with at least 10 GB RAM.
 
 ####**2. Software requirements**
 
@@ -68,7 +68,7 @@ If L > 151, the users should change these two parameters to (L, 2*L + insert siz
 
  **3.3.  BWA index preparation**
  
-Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLsacn/BWAindex/). 
+Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLscan/BWAindex/). 
 
     > tar jxvf NCLscan_bwa_index_hg19.tar.bz2
     > cd /path/to/NCLscan_bwa_index_hg19
@@ -76,7 +76,7 @@ Before executing BWA alignment, the users need to create mapping index files for
 
 The users can also generate index (“bwa_AllRef.fa*”) by themselves using the following command:
 
-    > cd /path/to/NCLscan
+    > cd /path/to/NCLscan_v1.3
     > ./MakeBwaRef
     
 ####**4. Execution of NCLscan**
