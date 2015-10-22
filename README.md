@@ -1,5 +1,5 @@
 ## Manual of NCLscan
-###### Version:1.3 (2015/08/10) 
+###### Version:1.4 (2015/10/22) 
 
 ##### We have developed a new pipeline, NCLscan, which is rather advantageous in the identification of both intragenic and intergenic "non-co-linear" (NCL) transcripts (fusion, trans-splicing, and circular RNA) from paired-end RNA-seq data. 
 --------------
@@ -28,9 +28,9 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
    Note: Novoalign is a commercial bioinformatics tool. It can be requested for a limited license for academic/non-profit       researches.
 
 ####**3. Installation**
-   The users can download NCLscan_v1.3.tar.gz file and unzip it.
+   The users can download NCLscan_v1.4.tar.gz file and unzip it.
   
-         > tar xvzf NCLscan_v1.3.tar.gz
+         > tar xvzf NCLscan_v1.4.tar.gz
 
  **3.1.  Reference preparation**
  
@@ -48,7 +48,7 @@ The human reference files could also be downloaded from our FTP website (ftp://t
 
            > tar jxvf NCLscan_reference_hg19.tar.bz2
            > cd /path/to/NCLscan_reference_hg19
-           > mv . /path/to/NCLscan_v1.3 
+           > mv . /path/to/NCLscan_v1.4 
 
 
  **3.2.  Configuration**
@@ -72,11 +72,11 @@ Before executing BWA alignment, the users need to create mapping index files for
 
     > tar jxvf NCLscan_bwa_index_hg19.tar.bz2
     > cd /path/to/NCLscan_bwa_index_hg19
-    > mv . /path/to/NCLscan_v1.3
+    > mv . /path/to/NCLscan_v1.4
 
 The users can also generate index (“bwa_AllRef.fa*”) by themselves using the following command:
 
-    > cd /path/to/NCLscan_v1.3
+    > cd /path/to/NCLscan_v1.4
     > ./MakeBwaRef
     
 ####**4. Execution of NCLscan**
@@ -99,10 +99,10 @@ Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq dat
   ```
           > mkdir test_NCLscan
   ```
-  **Step 2.** The shortcuts of NCLscan_v1.3 are created in the test project folder.
+  **Step 2.** The shortcuts of NCLscan_v1.4 are created in the test project folder.
   ```
           > cd test_NCLscan
-          > ln -s  /path/to/NCLscan_v1.3/* .
+          > ln -s  /path/to/NCLscan_v1.4/* .
   ```
   **Step 3.** Run it
   ```
@@ -125,6 +125,9 @@ The column format of "MyProject.result" is described as follows:
 (7) Gene name of the donor side
 (8) Gene name of the acceptor side
 (9) Intragenic (1) or intergenic (0) case
+(10) Total number of all support reads
+(11) Total number of junc-reads
+(12) Total number of span-reads
 ```
 
 ####**6. The detailed description of the NCLscan pipeline**
@@ -182,6 +185,6 @@ Usage:
 ```
 >./NCL_Scan5.py
 ```
-Note: This program appends gene names in the final result (i.e., "MyProject.result") according to the gene annotation.
+Note: This program appends gene names (according to the gene annotation) and the total number of support reads (all/junc/span) in the final result (i.e., "MyProject.result").
 
  
