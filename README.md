@@ -1,5 +1,5 @@
 ## Manual of NCLscan
-###### Version:1.4 (2015/10/22) 
+###### Version:1.4 (2016/01/14) 
 
 ##### We have developed a new pipeline, NCLscan, which is rather advantageous in the identification of both intragenic and intergenic "non-co-linear" (NCL) transcripts (fusion, trans-splicing, and circular RNA) from paired-end RNA-seq data. 
 --------------
@@ -11,7 +11,9 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
 
 ####**1. System requirements**
 
-   NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with at least 10 GB RAM.
+   NCLscan runs under the Linux (i.e., Bio-Linux, see also http://nebc.nerc.ac.uk/ for further details) or Mac operating   systems on a 64-bit machine with at least 10 GB RAM. 
+
+   The python scripts used in NCLscan are developed under Python2.7.
 
 ####**2. Software requirements**
 

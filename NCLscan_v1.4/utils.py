@@ -29,6 +29,11 @@ def get_parameter(config_file, key_num):
 def retain_wanted(origin_data, wanted_list):
     type_of_data = type(origin_data)
     if type_of_data == dict:
-        return {key: origin_data[key] for key in wanted_list if key in origin_data}
+        res_dict = {}
+        for key in wanted_list:
+            if key in origin_data:
+                res_dict[key] = origin_data[key]
+        return res_dict
+        #return {key: origin_data[key] for key in wanted_list if key in origin_data}  # New in Python 2.7
     elif type_of_data == list:
         return [value for value in wanted_list if value in origin_data]
