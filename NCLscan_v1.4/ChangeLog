@@ -1,7 +1,0 @@
-2016-01-14
-  - Fix some bugs
-
-2015-10-22
-  - Update version to 'v1.4'
-  - The number of support reads (total/junc/span) are appended to the final result file.
-
