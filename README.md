@@ -1,5 +1,5 @@
 ## Manual of NCLscan
-###### Version:1.4 (2016/01/14) 
+###### Version:1.5
 
 ##### We have developed a new pipeline, NCLscan, which is rather advantageous in the identification of both intragenic and intergenic "non-co-linear" (NCL) transcripts (fusion, trans-splicing, and circular RNA) from paired-end RNA-seq data. 
 --------------
@@ -30,11 +30,17 @@ Please click "Download ZIP" button at the right side to download NCLscan tool.
    Note: Novoalign is a commercial bioinformatics tool. It can be requested for a limited license for academic/non-profit       researches.
 
 ####**3. Installation**
-   The users can download NCLscan_v1.4.tar.gz file and unzip it.
+   The users can download NCLscan.tar.gz file and unzip it.
   
-         > tar xvzf NCLscan_v1.4.tar.gz
+        > tar xvzf NCLscan.tar.gz
 
- **3.1.  Reference preparation**
+ **3.1.  Building the C++ code**
+
+        > cd NCLscan/cpp
+        > make
+        > make install
+
+ **3.2.  Reference preparation**
  
 The genomic sequences and annotation were downloaded from the GENCODE website at http://www.gencodegenes.org/. Given the   human reference genome (GRCh37.p13, http://www.gencodegenes.org/releases/19.html) as an example, the following four reference files are required:
 
@@ -48,12 +54,12 @@ Unzip these 4 reference files, and move them into the file directory of NCLscan.
 
 The human reference files could also be downloaded from our FTP website (ftp://treeslab1.genomics.sinica.edu.tw/NCLscan/NCLscan_reference)
 
-           > tar jxvf NCLscan_reference_hg19.tar.bz2
-           > cd /path/to/NCLscan_reference_hg19
-           > mv . /path/to/NCLscan_v1.4 
+        > tar jxvf NCLscan_reference_hg19.tar.bz2
+        > cd /path/to/NCLscan_reference_hg19
+        > mv * /path/to/NCLscan
 
 
- **3.2.  Configuration**
+ **3.3.  Configuration**
 
 The above four reference files and two parameters are listed in “config.txt” as follows:
 
@@ -68,28 +74,28 @@ The above four reference files and two parameters are listed in “config.txt”
 Note: The final two parameters, 151 and 500, indicate the maximal read length (L) and fragment size of the used paired-ended RNA-seq data (FASTQ files), where fragment size = 2*L + insert size. 
 If L > 151, the users should change these two parameters to (L, 2*L + insert size).
 
- **3.3.  BWA index preparation**
+ **3.4.  BWA index preparation**
  
 Before executing BWA alignment, the users need to create mapping index files for the reference genome. For the human reference genome (GRCh37.p13), the index files (“bwa_AllRef.fa*”) has been created and accessible at our FTP site (ftp://treeslab1.genomics.sinica.edu.tw/NCLscan/BWAindex/). 
 
-    > tar jxvf NCLscan_bwa_index_hg19.tar.bz2
-    > cd /path/to/NCLscan_bwa_index_hg19
-    > mv . /path/to/NCLscan_v1.4
+        > tar jxvf NCLscan_bwa_index_hg19.tar.bz2
+        > cd /path/to/NCLscan_bwa_index_hg19
+        > mv * /path/to/NCLscan
 
 The users can also generate index (“bwa_AllRef.fa*”) by themselves using the following command:
 
-    > cd /path/to/NCLscan_v1.4
-    > ./MakeBwaRef
+        > cd /path/to/NCLscan
+        > ./MakeBwaRef
     
 ####**4. Execution of NCLscan**
 
    Usage:
 
-          >./NCLscan.sh [Fastq1] [Fastq2] [ProjectName] [QualityScore] [BWAthread] [SpanRange]
+        >./NCLscan.sh [Fastq1] [Fastq2] [ProjectName] [QualityScore] [BWAthread] [SpanRange]
 
    An example:
 
-          >./NCLscan.sh 01.fastq 02.fastq MyProject 20 8 50
+        >./NCLscan.sh 01.fastq 02.fastq MyProject 20 8 50
 
 Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq data. NCLscan outputs two main results: "MyProject.result" and "MyProject.result.sam". MyProject is the prefix of the output filenames. The fourth parameter means the cutoff of sequence quality score of the considered RNA-seq reads (default: 20). If a read contains a base with sequence quality score that is smaller than the cutoff value, such a read is not considered. If 0 is set, it means that all reads are considered. The fifth parameter is the number of used threads for BWA (default: 8). The sixth parameter is the size of span range (default: 50; see section 5).
 
@@ -99,16 +105,16 @@ Note: 01.fastq and 02.fastq are the two files of a set of paired-end RNA-seq dat
  
   **Step 1.** Create a test project folder
   ```
-          > mkdir test_NCLscan
+        > mkdir test_NCLscan
   ```
-  **Step 2.** The shortcuts of NCLscan_v1.4 are created in the test project folder.
+  **Step 2.** The shortcuts of NCLscan are created in the test project folder.
   ```
-          > cd test_NCLscan
-          > ln -s  /path/to/NCLscan_v1.4/* .
+        > cd test_NCLscan
+        > ln -s /path/to/NCLscan/* .
   ```
   **Step 3.** Run it
   ```
-  > ./NCLscan.sh /path/to/simu_5X_100PE_1.fastq /path/to/simu_5X_100PE_2.fastq test_NCLscan 0 8 50 2>&1 | tee  test_NCLscan.log
+        > ./NCLscan.sh /path/to/simu_5X_100PE_1.fastq /path/to/simu_5X_100PE_2.fastq test_NCLscan 0 8 50 2>&1 | tee  test_NCLscan.log
   ```
   The final result will be generated as a “test_NCLscan.result” file.
 
@@ -140,7 +146,7 @@ The NCLscan pipeline includes six steps, which are all involved in the batch fil
    
 Usage:
 ```
->./NCL_Scan0.sh 01.fastq 02.fastq MyProject
+        >./NCL_Scan0.sh 01.fastq 02.fastq MyProject
 ```
 Note: NCL_Scan0 aligns the reads against the reference genome and the annotated transcripts using BWA. 
 	
@@ -148,7 +154,7 @@ Note: NCL_Scan0 aligns the reads against the reference genome and the annotated 
    
 Usage:
 ```
-> NCL_Scan1 MyProject.bwa.unmapped_1.fastq MyProject.bwa.unmapped_2.fastq MyProject
+        > NCL_Scan1 MyProject.bwa.unmapped_1.fastq MyProject.bwa.unmapped_2.fastq MyProject
 ```
 Note: NCL_Scan1 aligns the BWA-unmapped reads against the reference genome and the annotated transcripts using Novoalign.
 
@@ -156,7 +162,7 @@ Note: NCL_Scan1 aligns the BWA-unmapped reads against the reference genome and t
 
 Usage:
 ```
-> NCL_Scan2 20
+        > NCL_Scan2 20
 ```
 Note: NCL_Scan2 includes three steps: (1) concatenating the two ends of each unmapped read; (2) BLAT-aligning the concatenated sequences against the reference genome; and (3) removing the concatenated sequences with an alternative co-linear explanation. If a read contains a base with sequence quality score that is smaller than the cutoff value (default: 20), such a read is not considered.
 
@@ -164,7 +170,7 @@ Note: NCL_Scan2 includes three steps: (1) concatenating the two ends of each unm
 
 Usage:
 ```
-> NCL_Scan3
+        > NCL_Scan3
 ```
 Note: NCL_Scan3 generates putative NCL references with putative NCL junction sites for the retained concatenated-sequences.
 
@@ -172,7 +178,7 @@ Note: NCL_Scan3 generates putative NCL references with putative NCL junction sit
 
 Usage:
 ```
-> NCL_Scan4 50
+        > NCL_Scan4 50
 ```
 Note: NCL_Scan4 includes the following steps: 
 ```
@@ -185,7 +191,7 @@ Note: NCL_Scan4 includes the following steps:
 
 Usage:
 ```
->./NCL_Scan5.py
+        >./NCL_Scan5.py
 ```
 Note: This program appends gene names (according to the gene annotation) and the total number of support reads (all/junc/span) in the final result (i.e., "MyProject.result").
 
