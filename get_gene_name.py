@@ -19,6 +19,7 @@ def add_gene_name(result_tmp_file, anno_file, output_file):
         else:
             if len(gene_name_1) + len(gene_name_2) > len(set(gene_name_1 + gene_name_2)):
                 isIntragenic = '1'
+                gene_name_1 = gene_name_2 = list(set(gene_name_1) & set(gene_name_2))
             else:
                 isIntragenic = '0'
 

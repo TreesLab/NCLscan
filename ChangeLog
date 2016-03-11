@@ -1,3 +1,6 @@
+2016-03-11
+  - retain only the common gene name for the intragenic case.
+
 2016-03-08
   - release c++ source code
 
