@@ -7,7 +7,7 @@
 
 The NCLscan program, document, and test set can be downloaded from our FTP site: ftp://treeslab1.genomics.sinica.edu.tw/NCLscan or GitHub: https://github.com/TreesLab/NCLscan.
 
-Please click "Download ZIP" button at the right side to download NCLscan tool. 
+Please check the "[release](https://github.com/TreesLab/NCLscan/releases)" page to download NCLscan tool. 
 
 ####**1. System requirements**
 
