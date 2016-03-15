@@ -281,6 +281,16 @@ def read_TSV(tsv_file, read_from_string=False):
         return tsv_data_list
 
 
+def write_TSV(result, out_file="result.txt", write_to_string=False):
+    if write_to_string:
+        result_tsv = '\n'.join(['\t'.join(line) for line in result])
+        return result_tsv
+    else:
+        with open(out_file, 'w') as data_writer:
+            for line in result:
+                print >> data_writer, '\t'.join(map(str, line))
+
+
 class NCLscanConfig(object):
     def __init__(self, config_text):
         self.parse_config(config_text)
