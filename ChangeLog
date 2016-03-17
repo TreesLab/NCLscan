@@ -1,3 +1,7 @@
+2016-03-22
+  - Update version to 'v1.6'
+  - release new version of NCLscan with a new interface.
+
 2016-03-11
   - retain only the common gene name for the intragenic case.
 
