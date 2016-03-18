@@ -69,19 +69,19 @@ def NCL_Scan2(config, datasets_list, project_name, output_dir):
         unmmaped_fastas.append("{prefix}.unmapped.fa".format(**config_options))
 
     # merge all unmapped fasta of main datasets
-    config_options.update({"unmapped_fastas":' '.join(unmmaped_fastas), "prefix":"{}/{}".format(output_dir, project_name)})
+    config_options.update({"unmapped_fastas":' '.join(unmmaped_fastas), "prefix":"{}/{}".format(output_dir, project_name), "output_dir":output_dir})
     Run_with_args("cat {unmapped_fastas} > {prefix}.unmapped.fa")
 
-    Run_with_args("{blat_bin} {Reference_genome} {prefix}.unmapped.fa {prefix}.rG.psl")
+    Run_with_args("{mp_blat_bin} {Reference_genome} {prefix}.unmapped.fa {prefix}.rG.psl -p {mp_blat_process} --blat_bin {blat_bin} --tmp_path {output_dir}")
 
     Run_with_args("cat {prefix}.rG.psl | awk 'substr($14,0,2) == \"GL\"' | awk '($1+$3) >= 50' > {prefix}.un.psl")
     Run_with_args("cat {prefix}.rG.psl | {RemoveInList_bin} 10 {prefix}.un.psl 10 > {prefix}.rG.non_un.psl")
     Run_with_args("cat {prefix}.rG.non_un.psl | {PslChimeraFilter_bin} 30 5 > {prefix}.chi0.bed")
     Run_with_args("cat {prefix}.unmapped.fa | {SeqOut_bin} {prefix}.chi0.bed 4 > {prefix}.unmapped.2.fa")
 
-    Run_with_args("{blat_bin} {Protein_coding_transcripts} {prefix}.unmapped.2.fa {prefix}.coding.2.psl")
-    Run_with_args("{blat_bin} {lncRNA_transcripts} {prefix}.unmapped.2.fa {prefix}.lncRNA.2.psl")
-    Run_with_args("{blat_bin} {Repeat_ChrM} {prefix}.unmapped.2.fa {prefix}.chrM.2.psl")
+    Run_with_args("{mp_blat_bin} {Protein_coding_transcripts} {prefix}.unmapped.2.fa {prefix}.coding.2.psl -p {mp_blat_process} --blat_bin {blat_bin} --tmp_path {output_dir}")
+    Run_with_args("{mp_blat_bin} {lncRNA_transcripts} {prefix}.unmapped.2.fa {prefix}.lncRNA.2.psl -p {mp_blat_process} --blat_bin {blat_bin} --tmp_path {output_dir}")
+    Run_with_args("{mp_blat_bin} {Repeat_ChrM} {prefix}.unmapped.2.fa {prefix}.chrM.2.psl -p {mp_blat_process} --blat_bin {blat_bin} --tmp_path {output_dir}")
 
     Run_with_args("cat {prefix}.coding.2.psl {prefix}.lncRNA.2.psl {prefix}.chrM.2.psl | awk '$12 < 10' | awk '($11-$13) < 10' > {prefix}.colinear.psl")
     Run_with_args("cat {prefix}.chi0.bed | {RemoveInList_bin} 4 {prefix}.colinear.psl 10 > {prefix}.chi.bed")
@@ -137,14 +137,14 @@ def NCL_Scan3(config, datasets_list, project_name, output_dir):
 
     # Preform more sensitive blat alignment
     Run_with_args("cat {prefix}.JS.fa | {SeqOut_bin} {prefix}.info 1 > {prefix}.JS.clear.fa")
-    Run_with_args("{blat_bin} {Reference_genome} {prefix}.JS.clear.fa {prefix}.JS.GRCh37.psl")
+    Run_with_args("{mp_blat_bin} {Reference_genome} {prefix}.JS.clear.fa {prefix}.JS.GRCh37.psl -p {mp_blat_process} --blat_bin {blat_bin} --tmp_path {output_dir}")
     Run_with_args("cat {prefix}.JS.GRCh37.psl | awk '((($11/2)-$12) > 50) && (($13-($11/2)) > 50) && ($1/($13-$12) > 0.8)' > {prefix}.JS.GRCh37.2.psl")
     Run_with_args("cat {prefix}.JS.GRCh37.2.psl | awk '{{print $10}}' | sed 's/\\.[0-9]*$//g' > {prefix}.linearJS")
     Run_with_args("cat {prefix}.info | sed 's/\\.[0-9]*\\t/\\t/g' > {prefix}.tmp.info")
     Run_with_args("cat {prefix}.tmp.info | {RmRedundance_bin} 1 | awk '{{print $1}}' > {prefix}.tmp2.info")
     Run_with_args("cat {prefix}.tmp2.info | {RemoveInList_bin} 1 {prefix}.linearJS 1 > {prefix}.2.info")
     Run_with_args("cat {prefix}.unmapped.fa | {SeqOut_bin} {prefix}.2.info 1 > {prefix}.2.info.fa")
-    Run_with_args("{blat_bin} {Reference_genome} {prefix}.2.info.fa -tileSize=9 -stepSize=9 -repMatch=32768 {prefix}.2.info.GRCh37.psl")
+    Run_with_args("{mp_blat_bin} {Reference_genome} {prefix}.2.info.fa {prefix}.2.info.GRCh37.psl -p {mp_blat_process} --blat_bin {blat_bin} --blat_opt \"-tileSize=9 -stepSize=9 -repMatch=32768\" --tmp_path {output_dir}")
     Run_with_args("cat {prefix}.2.info.GRCh37.psl | {PslChimeraFilter_bin} 30 1 > {prefix}.2.chi.bed")
     Run_with_args("cat {prefix_all}.JS.Parsered.sam | {GetNameB4Dot_bin} 3 > {output_dir}/temp.list")
     Run_with_args("cat {prefix}.chi.bed | {RetainInList_bin} 4 {output_dir}/temp.list 1 > {prefix}.chi2.bed")
@@ -179,7 +179,7 @@ def NCL_Scan4(config, datasets_list, project_name, output_dir):
     Run_with_args = Run_cmd(config_options)
 
     # find span-reads
-    config_options.update({"prefix":"{}/{}".format(output_dir, project_name), "prefix_all":"{}/all.{}".format(output_dir, project_name)})
+    config_options.update({"prefix":"{}/{}".format(output_dir, project_name), "prefix_all":"{}/all.{}".format(output_dir, project_name), "output_dir":output_dir})
     Run_with_args("{novoindex_bin} {prefix}.JS2.ndx {prefix}.JS2.fa")
 
     all_datasets = datasets_list.main_datasets.values() + datasets_list.support_datasets.values()
@@ -216,10 +216,10 @@ def NCL_Scan4(config, datasets_list, project_name, output_dir):
     config_options.update({"um3_fastas":' '.join(um3_fastas)})
     Run_with_args("cat {um3_fastas} > {prefix_all}.um3.fa")
 
-    Run_with_args("{blat_bin} {Reference_genome} {prefix_all}.um3.fa -tileSize=9 -stepSize=9 -repMatch=32768 {prefix}.rG.um3.psl")
-    Run_with_args("{blat_bin} {Protein_coding_transcripts} {prefix_all}.um3.fa -tileSize=9 -stepSize=9 -repMatch=32768 {prefix}.coding.um3.psl")
-    Run_with_args("{blat_bin} {lncRNA_transcripts} {prefix_all}.um3.fa -tileSize=9 -stepSize=9 -repMatch=32768 {prefix}.lncRNA.um3.psl")
-    Run_with_args("{blat_bin} {Repeat_ChrM} {prefix_all}.um3.fa -tileSize=9 -stepSize=9 -repMatch=32768 {prefix}.chrM.um3.psl")
+    Run_with_args("{mp_blat_bin} {Reference_genome} {prefix_all}.um3.fa {prefix}.rG.um3.psl -p {mp_blat_process} --blat_bin {blat_bin} --blat_opt \"-tileSize=9 -stepSize=9 -repMatch=32768\" --tmp_path {output_dir}")
+    Run_with_args("{mp_blat_bin} {Protein_coding_transcripts} {prefix_all}.um3.fa {prefix}.coding.um3.psl -p {mp_blat_process} --blat_bin {blat_bin} --blat_opt \"-tileSize=9 -stepSize=9 -repMatch=32768\" --tmp_path {output_dir}")
+    Run_with_args("{mp_blat_bin} {lncRNA_transcripts} {prefix_all}.um3.fa {prefix}.lncRNA.um3.psl -p {mp_blat_process} --blat_bin {blat_bin} --blat_opt \"-tileSize=9 -stepSize=9 -repMatch=32768\" --tmp_path {output_dir}")
+    Run_with_args("{mp_blat_bin} {Repeat_ChrM} {prefix_all}.um3.fa {prefix}.chrM.um3.psl -p {mp_blat_process} --blat_bin {blat_bin} --blat_opt \"-tileSize=9 -stepSize=9 -repMatch=32768\" --tmp_path {output_dir}")
 
     Run_with_args("cat {prefix}.rG.um3.psl {prefix}.coding.um3.psl {prefix}.lncRNA.um3.psl {prefix}.chrM.um3.psl | awk '$12 < 5' | awk '($11-$13) < 5' > {prefix_all}.um3.colinear.psl")
 
