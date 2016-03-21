@@ -18,6 +18,8 @@ def create_reference_and_index(config):
     config_options = config.options.copy()
     Run_with_args = Run_cmd(config_options)
 
+    Run_with_args("mkdir -p {NCLscan_ref_dir}")
+
     # Generate the "Repeat_ChrM"
     Run_with_args("echo 'chrM' > {NCLscan_ref_dir}/chrM.list")
     Run_with_args("cat {Reference_genome} | {SeqOut_bin} {NCLscan_ref_dir}/chrM.list 1 > {NCLscan_ref_dir}/chrM.fa")
@@ -35,7 +37,7 @@ def create_reference_and_index(config):
     Run_with_args("{novoindex_bin} {NCLscan_ref_dir}/AllRef.ndx {NCLscan_ref_dir}/AllRef.fa")
 
     # Remove tmp files
-    Run_with_args("rm -f chrM.list chrM.fa chrM.seq chrM.title")
+    Run_with_args("rm -f {NCLscan_ref_dir}/chrM.list {NCLscan_ref_dir}/chrM.fa {NCLscan_ref_dir}/chrM.seq {NCLscan_ref_dir}/chrM.title")
 
 
 def Run_cmd(args):
