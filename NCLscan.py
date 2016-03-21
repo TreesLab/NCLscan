@@ -299,6 +299,11 @@ class NCLscanConfig(object):
         format_options = re.sub("^ *(.*?)/? *$", "\g<1>", config_text, flags=re.M)
         all_options = OrderedDict(re.findall("(^[^#\n][\w-]*) *= *(.*)", format_options, flags=re.M))
         for key, value in all_options.items():
+
+            if value == "":
+                print >> sys.stderr, "Error: There is a key with empty value: {}".format(key)
+                exit(1)
+
             all_options[key] = value.format(**all_options)
         self.options = all_options
 
