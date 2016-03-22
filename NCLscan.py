@@ -360,8 +360,8 @@ class DatasetsList(object):
                     if len(tmp) == 2:
                         if dataset_type == "main":
                             self.main_datasets[dataset_name] = self.Dataset(dataset_name, dataset_type, tmp)
-                        elif dataset_type == "support":
-                            self.support_datasets[dataset_name] = self.Dataset(dataset_name, dataset_type, tmp)
+                        #[Support]elif dataset_type == "support":
+                        #[Support]    self.support_datasets[dataset_name] = self.Dataset(dataset_name, dataset_type, tmp)
                         else:
                             # report error: Unrecoganized type: 
                             pass
@@ -377,8 +377,8 @@ class DatasetsList(object):
                 if len(tmp) == 2:
                     if dataset_type == "main":
                         self.main_datasets[dataset_name] = self.Dataset(dataset_name, dataset_type, tmp)
-                    elif dataset_type == "support":
-                        self.support_datasets[dataset_name] = self.Dataset(dataset_name, dataset_type, tmp)
+                    #[Support]elif dataset_type == "support":
+                    #[Support]    self.support_datasets[dataset_name] = self.Dataset(dataset_name, dataset_type, tmp)
                     else:
                         # report error: Unrecoganized type:
                         pass
@@ -395,7 +395,7 @@ class DatasetsList(object):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--config", help="The config file of NCLscan.")
-    parser.add_argument("-l", "--datasets_list", help="The list of the datasets for the run.")
+    #[Support]parser.add_argument("-l", "--datasets_list", help="The list of the datasets for the run.")
     parser.add_argument("--fq1", help="The 1st end of the paired-end reads.")
     parser.add_argument("--fq2", help="The 2nd end of the paired-end reads.")
     parser.add_argument("-pj", "--project_name")
@@ -411,7 +411,8 @@ if __name__ == "__main__":
     if args.config == None:
         print >> sys.stderr, "Need the config file!"
         too_few_args = True
-    if (args.datasets_list == None) and ((args.fq1 == None) or (args.fq2 == None)):
+    if (args.fq1 == None) or (args.fq2 == None):
+    #[Support]if (args.datasets_list == None) and ((args.fq1 == None) or (args.fq2 == None)):
         print >> sys.stderr, "Need to assign the input dataset!"
         too_few_args = True
     if args.project_name == None:
@@ -428,12 +429,16 @@ if __name__ == "__main__":
     with open(args.config) as config_file:
         config = NCLscanConfig(config_file.read())
 
-    if args.datasets_list != None:
-        with open(args.datasets_list) as datasets_list_file:
-            datasets_list = DatasetsList(datasets_list_file.read())
-    else:
-        datasets_list_text = "[Main.{}]\n{}\n{}".format(args.project_name, args.fq1, args.fq2)
-        datasets_list = DatasetsList(datasets_list_text)
+    #[Support]
+    #[Support]if args.datasets_list != None:
+    #[Support]    with open(args.datasets_list) as datasets_list_file:
+    #[Support]        datasets_list = DatasetsList(datasets_list_file.read())
+    #[Support]else:
+    #[Support]    datasets_list_text = "[Main.{}]\n{}\n{}".format(args.project_name, args.fq1, args.fq2)
+    #[Support]    datasets_list = DatasetsList(datasets_list_text)
+    datasets_list_text = "[Main.{}]\n{}\n{}".format(args.project_name, args.fq1, args.fq2)
+    datasets_list = DatasetsList(datasets_list_text)
+
 
     os.system("mkdir -p {}".format(args.output_dir))
 
