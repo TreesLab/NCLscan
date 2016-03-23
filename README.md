@@ -1,5 +1,5 @@
 ## Manual of NCLscan
-###### Version:1.6
+###### Version: 1.6
 
 ##### We have developed a new pipeline, NCLscan, which is rather advantageous in the identification of both intragenic and intergenic "non-co-linear" (NCL) transcripts (fusion, trans-splicing, and circular RNA) from paired-end RNA-seq data. 
 --------------
@@ -53,7 +53,7 @@ Unzip these 4 reference files, and edit the config file "NCLscan.config" with th
 
  **2.4.  Building the C++ code**
 
-NCLscan involved with some c++ programs, the users can build these utils with the following commands:
+NCLscan involved with some C++ programs, the users can build these utils with the following commands:
 
         > cd NCLscan/bin
         > make
@@ -76,7 +76,7 @@ The users can use the script "create_reference.py" to build the needed reference
 
         > ./NCLscan.py -c ./NCLscan.config -pj test_NCLscan -o output --fq1 simu_5X_100PE_1.fastq --fq2 simu_5X_100PE_1.fastq
 
-The test RNA-seq dataset “simu\_5X\_100PE” can be downloaded from our FTP site: [test.tar.gz](ftp://treeslab1.genomics.sinica.edu.tw/NCLscan/test.tar.gz)
+The test RNA-seq dataset “simu\_5X\_100PE” can be downloaded from our FTP site: ftp://treeslab1.genomics.sinica.edu.tw/NCLscan/test.tar.gz
 
 Note. The input fastq files may be compressed (.fastq.gz) or uncompressed (.fastq).
 
@@ -106,22 +106,22 @@ The column format of "MyProject.result" is described as follows:
    
 The NCLscan pipeline includes four steps, which are all involved in the python script (NCLscan.py). The four steps are explained as follows:
 
-   **NCL_Scan1**
+   - **NCL_Scan1**
 
 NCL_Scan1 aligns the reads against the reference genome and the annotated transcripts using BWA, and then aligns the BWA-unmapped reads against the same references using Novoalign.
 	
 
-   **NCL_Scan2**
+   - **NCL_Scan2**
    
 NCL_Scan2 includes three steps: (1) concatenating the two ends of each unmapped read; (2) BLAT-aligning the concatenated sequences against the reference genome; and (3) removing the concatenated sequences with an alternative co-linear explanation. If a read contains a base with sequence quality score that is smaller than the cutoff value (default: 20), such a read is not considered.
 
 
-   **NCL_Scan3**
+   - **NCL_Scan3**
 
 NCL_Scan3 generates putative NCL references with putative NCL junction sites for the retained concatenated-sequences.
 
 
-  **NCL_Scan4**
+   - **NCL_Scan4**
 
 Note: NCL_Scan4 includes the following steps: 
 ```
