@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Common.h"
 #include "Table.h"
 #include "Map.h"
-#include "NCL_head.h"
 
 void PrintUsage();
 
@@ -19,24 +19,59 @@ int main(int argc, char **argv)
 	char buf1[255];
 	char buf2[255];
 	char buf3[255];
+	char opath[4096];
+	char tmp1[4096] = "";
+	char tmp2[4096] = "";
+	char tmp3[4096] = "";
+	int pathLen;
+	int i;
 
 	if(argc != 2)
 	{ PrintUsage();	return 1; }
 
-	sprintf(str, "cat %s | sed 's/{(})/\t/g' | awk '{print $2}' | sed 's/,/\t/g' > Tmp1.getinfo", argv[1]);	
+	// Get the path of input file
+	strcpy(opath, argv[1]);
+	pathLen = strlen(opath);
+	for(i=pathLen-1;i>=0;i--)
+	{
+		if(opath[i] == '/')
+		{
+			opath[i] = '\0';
+			break;
+		}
+	}
+
+	if(i == -1) // in current directory
+	{
+		sprintf(tmp1, "Tmp1.getinfo");
+		sprintf(tmp2, "Tmp2.getinfo");
+		sprintf(tmp3, "Tmp3.getinfo");
+	}
+	else
+	{
+		sprintf(tmp1, "%s/Tmp1.getinfo", opath);
+		sprintf(tmp2, "%s/Tmp2.getinfo", opath);
+		sprintf(tmp3, "%s/Tmp3.getinfo", opath);
+	}
+
+	//printf("%s\n", tmp1);
+	//printf("%s\n", tmp2);
+	//printf("%s\n", tmp3);
+
+	sprintf(str, "cat %s | sed 's/{(})/\t/g' | awk '{print $2}' | sed 's/,/\t/g' > %s", argv[1], tmp1);
 	system(str);
-	sprintf(str, "cat %s | sed 's/{(})/\t/g' | awk '{print $3}' > Tmp2.getinfo", argv[1]);	
+	sprintf(str, "cat %s | sed 's/{(})/\t/g' | awk '{print $3}' > %s", argv[1], tmp2);
 	system(str);
-	sprintf(str, "cat %s | sed 's/{(})/\t/g' | awk '{print $4}' | sed 's/,/\t/g' > Tmp3.getinfo", argv[1]);
+	sprintf(str, "cat %s | sed 's/{(})/\t/g' | awk '{print $4}' | sed 's/,/\t/g' > %s", argv[1], tmp3);
 	system(str);
 
 	if(	( fp0 = fopen(argv[1], "r") ) == NULL )
 	{	PrintUsage();	return 1;	}	
-	if(	( fp1 = fopen("Tmp1.getinfo", "r") ) == NULL )
+	if(	( fp1 = fopen(tmp1, "r") ) == NULL )
 	{	PrintUsage();	return 1;	}	
-	if(	( fp2 = fopen("Tmp2.getinfo", "r") ) == NULL )
+	if(	( fp2 = fopen(tmp2, "r") ) == NULL )
 	{	PrintUsage();	return 1;	}	
-	if(	( fp3 = fopen("Tmp3.getinfo", "r") ) == NULL )
+	if(	( fp3 = fopen(tmp3, "r") ) == NULL )
 	{	PrintUsage();	return 1;	}	
 
 	TableRow C0;
@@ -80,8 +115,10 @@ int main(int argc, char **argv)
 			printf("%s\t%s\n", C0.ColCopy(buf0, 0), info);
 			theMap.Add(info);
 		}
-	}	
-	system("rm Tmp1.getinfo Tmp2.getinfo Tmp3.getinfo");
+	}
+
+	sprintf(str, "rm -f %s %s %s", tmp1, tmp2, tmp3);
+	system(str);
 
 	return 0;
 }

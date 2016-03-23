@@ -1,9 +1,9 @@
 #! /usr/bin/env python2
 
 import argparse
+import sys
 import subprocess as sp
 import re
-from utils import *
 
 
 def add_read_count(result_tmp_file, result_sam_file, output_file, JSParser_bin='./JSParser'):
@@ -68,26 +68,52 @@ def get_junc_read(res_sam_data, JSParser_bin):
     return junc_read_data
 
 
+def read_TSV(tsv_file, read_from_string=False):
+    if read_from_string:
+        tsv_data_lines = tsv_file.rstrip('\n').split('\n')
+        tsv_data_list = [line.split('\t') for line in tsv_data_lines]
+        return tsv_data_list
+    else:
+        with open(tsv_file) as data_reader:
+            tsv_data_list = [line.rstrip('\n').split('\t') for line in data_reader]
+        return tsv_data_list
 
-def main():
+
+def write_TSV(result, out_file="result.txt", write_to_string=False):
+    if write_to_string:
+        result_tsv = '\n'.join(['\t'.join(line) for line in result])
+        return result_tsv
+    else:
+        with open(out_file, 'w') as data_writer:
+            for line in result:
+                print >> data_writer, '\t'.join(map(str, line))
+
+
+def retain_wanted(origin_data, wanted_list):
+    type_of_data = type(origin_data)
+    if type_of_data == dict:
+        res_dict = {}
+        for key in wanted_list:
+            if key in origin_data:
+                res_dict[key] = origin_data[key]
+        return res_dict
+        #return {key: origin_data[key] for key in wanted_list if key in origin_data}  # New in Python 2.7
+    elif type_of_data == list:
+        return [value for value in wanted_list if value in origin_data]
+
+
+
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-pj", "--project_name", dest="project_name", help="The project name.")
     parser.add_argument("-tmp", "--result_tmp_file", dest="result_tmp_file", help="[Project].result.tmp")
     parser.add_argument("-sam", "--result_sam_file", dest="result_sam_file", help="[Project].result.sam")
     parser.add_argument("-o", "--output", dest="output", help="The output filename.")
     parser.add_argument("--JSParser_bin", default="./JSParser")
     args = parser.parse_args()
 
+    if len(sys.argv) == 1:
+        parser.print_help()
+        sys.exit()
 
-    pj_name        = args.project_name    or get_parameter("config.tmp", 2)
-    res_tmp_file   = args.result_tmp_file or "{PJ}.result.tmp".format(PJ=pj_name)
-    res_sam_file   = args.result_sam_file or "{PJ}.result.sam".format(PJ=pj_name)
-    output_file    = args.output          or "{result_tmp}.read_count".format(result_tmp=res_tmp_file)
-
-
-    add_read_count(res_tmp_file, res_sam_file, output_file, args.JSParser_bin)
-
-
-if __name__ == "__main__":
-    main()
+    add_read_count(args.result_tmp_file, args.result_sam_file, args.output, args.JSParser_bin)
 
