@@ -28,7 +28,9 @@ def create_reference_and_index(config):
     Run_with_args("cat {NCLscan_ref_dir}/chrM.title {NCLscan_ref_dir}/chrM.seq {NCLscan_ref_dir}/chrM.seq > {NCLscan_ref_dir}/RepChrM.fa")
 
     # Generate the "AllRef.fa"
-    Run_with_args("cat {Reference_genome} {Protein_coding_transcripts} {lncRNA_transcripts} {NCLscan_ref_dir}/RepChrM.fa > {NCLscan_ref_dir}/AllRef.fa")
+    Run_with_args("cat {Reference_genome} | grep '^>' | sed -r 's/>([^ ]*).*/\\1/g' | grep -v 'chrM' > {NCLscan_ref_dir}/non_chrM.list")
+    Run_with_args("cat {Reference_genome} | {SeqOut_bin} {NCLscan_ref_dir}/non_chrM.list 1 > {NCLscan_ref_dir}/ref_non_chrM.fa")
+    Run_with_args("cat {NCLscan_ref_dir}/ref_non_chrM.fa {Protein_coding_transcripts} {lncRNA_transcripts} {NCLscan_ref_dir}/RepChrM.fa > {NCLscan_ref_dir}/AllRef.fa")
 
     # Generate the index for bwa
     Run_with_args("{bwa_bin} index {NCLscan_ref_dir}/AllRef.fa")
@@ -37,7 +39,7 @@ def create_reference_and_index(config):
     Run_with_args("{novoindex_bin} {NCLscan_ref_dir}/AllRef.ndx {NCLscan_ref_dir}/AllRef.fa")
 
     # Remove tmp files
-    Run_with_args("rm -f {NCLscan_ref_dir}/chrM.list {NCLscan_ref_dir}/chrM.fa {NCLscan_ref_dir}/chrM.seq {NCLscan_ref_dir}/chrM.title")
+    Run_with_args("rm -f {NCLscan_ref_dir}/chrM.list {NCLscan_ref_dir}/chrM.fa {NCLscan_ref_dir}/chrM.seq {NCLscan_ref_dir}/chrM.title {NCLscan_ref_dir}/non_chrM.list {NCLscan_ref_dir}/ref_non_chrM.fa")
 
 
 def Run_cmd(args):
