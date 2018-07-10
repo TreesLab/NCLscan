@@ -33,7 +33,7 @@ def AssembleJSeq(jseq1_file, jseq2_file):
 
 def get_ID_and_seq(jseq_file):
     with open(jseq_file) as jseq:
-        ID_and_seq = re.findall("^(.+)\.[35]p\.[0-9]+\t(.+)$", jseq.read(), flags=re.M)
+        ID_and_seq = re.findall("^(.+)\.[35]p\.[0-9]+(?:\([+-]\))?\t(.+)$", jseq.read(), flags=re.M)
     return ID_and_seq
 
 
