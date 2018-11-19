@@ -11,10 +11,10 @@ def add_gene_name(result_tmp_file, anno_file, output_file):
 
     result_tmp_data_with_gene_name = []
     for line_list in result_tmp_data:
-        gene_name_1 = sorted(gene_name_dict.get('_'.join(line_list[1:3]), [None]))
-        gene_name_2 = sorted(gene_name_dict.get('_'.join(line_list[4:6]), [None]))
+        gene_name_1 = sorted(gene_name_dict.get('_'.join(line_list[1:3]), []))
+        gene_name_2 = sorted(gene_name_dict.get('_'.join(line_list[4:6]), []))
 
-        if (gene_name_1 == [None]) or (gene_name_2 == [None]):
+        if (gene_name_1 == []) or (gene_name_2 == []):
             isIntragenic = 'NA'
         else:
             if len(gene_name_1) + len(gene_name_2) > len(set(gene_name_1 + gene_name_2)):
