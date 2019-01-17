@@ -116,14 +116,18 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	char str[32767];
-	int i;
+	int i, j;
 	int jLen, aLen;
 	FILE *fp;
+	int capacity = 200000;
+	int capacityExpand = 200000;
+	int newCapacity;
+	Alignment *tempA;
 
 	map <string, int> themap;
-	Alignment *A = new Alignment[200000];
+	Alignment *A = new Alignment[capacity];
 
-	for(i=0; i<200000; i++)
+	for(i=0; i<capacity; i++)
 	{
 		strcpy(A[i].name, "");
 		A[i].len = 0;
@@ -151,6 +155,19 @@ int main(int argc, char **argv)
 		{
 			if( themap.find(theSam1.SN) == themap.end() )
 			{
+				if (i >= capacity) 
+				{
+					newCapacity = capacity + capacityExpand;
+					tempA = new Alignment[newCapacity];
+					for(j=0; j<capacity; j++)
+					{
+						tempA[j] = A[j];
+					}
+					capacity = newCapacity;
+					delete [] A;
+					A = tempA;
+				}
+
 				themap[theSam1.SN] = i;
 				
 				strcpy( A[i].name, theSam1.SN);
@@ -235,11 +252,11 @@ int main(int argc, char **argv)
 	}
 
 
-	Alignment *A2 = new Alignment[200000];
+	Alignment *A2 = new Alignment[capacity];
 	map <string, int> themap2;
 	int c, d;
 
-	for(i=0; i<200000; i++)
+	for(i=0; i<capacity; i++)
 	{
 		strcpy(A2[i].name, "");
 		A2[i].len = 0;
