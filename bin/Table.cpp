@@ -188,7 +188,7 @@ bool TableRow::CheckFormat(const char *sC, const char *comment)
 		return false;
 
 	pstr = Column(0);
-	while( ( *pstr <= 32 ) && ( pstr != '\0' || pstr < Column(nCol-1) ) )
+	while( ( *pstr <= 32 ) && ( *pstr != '\0' || pstr < Column(nCol-1) ) )
 		pstr++;
 
 	for( i=0; true; i++)
