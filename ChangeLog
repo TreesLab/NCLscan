@@ -1,3 +1,18 @@
+2019-02-19
+  - fix a bug that missed by g++ of version <= 6.
+
+2019-01-18
+  - fix the "array overflow" problem in "JSFilter".
+
+2018-11-19
+  - fix default value bug in "get_gene_name.py".
+
+2018-07-10
+  - fix the re pattern to fit the newer bedtools.
+
+2018-07-06
+  - fix duplicate sequence name issue.
+
 2016-03-22
   - Update version to 'v1.6'
   - release new version of NCLscan with a new interface.
