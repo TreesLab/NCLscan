@@ -198,7 +198,7 @@ def NCL_Scan4(config, datasets_list, project_name, output_dir):
     Run_with_args("cat {prefix_all}.JS2.sam | {JSFilter_bin} 10 {span_range} {prefix_all}.result > {prefix}.ncl.sam")
     Run_with_args("cat {prefix}.JS2.cleaned.info | {RetainInList_bin} 1 {prefix}.JS2.Idx 1 > {prefix}.JS2.result.info")
     Run_with_args("{GetInfo_bin} {prefix}.JS2.result.info > {prefix}.result.info")
-    Run_with_args("cat {prefix}.result.info | sed 's/\\.[0-9]*\\t/\\t/g' > {prefix}.2b.info")
+    Run_with_args("cat {prefix}.result.info | sed 's/\\.[0-9]*\\t/\\t/1' > {prefix}.2b.info")
     Run_with_args("cat {prefix}.2b.info | {RetainInList_bin} 1 {prefix_all}.result 1 > {prefix}.3.info")
     Run_with_args("cat {prefix}.3.info | {InsertInList_bin} 1 {prefix_all}.result 1 2 | {InsertInList_bin} 1 {prefix_all}.result 1 3 | {InsertInList_bin} 1 {prefix_all}.result 1 4 > {prefix}.4.info")
 

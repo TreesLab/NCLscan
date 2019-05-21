@@ -30,24 +30,39 @@ def add_gene_name(result_tmp_file, anno_file, output_file):
 
 def get_gene_name_dict(anno_file):
     # read annotation data
-    with open(anno_file) as data_reader:
-        anno_raw_data = data_reader.read()
-    
+    anno_raw_data = read_TSV(anno_file)
+
     # parse gene name
-    chrm_exon_gene_data = list(set(re.findall('(chr[^\t]+)\t.*exon\t([0-9]+)\t([0-9]+).*gene_name "([^;]+)";', anno_raw_data)))
-    
+    gene_name_pattern = re.compile(r'gene_name "([^;]*)";')
+
+    chrm_exon_gene_data = []
+    for data in anno_raw_data:
+        if data[2] == 'exon':
+            gene_name = re.search(gene_name_pattern, data[8])
+            if gene_name:
+                gene_name = gene_name.group(1)
+            else:
+                raise Exception('No "gene_name" field!')
+
+            chrm_exon_gene_data.append((data[0], data[3], data[4], gene_name))
+
+    chrm_exon_gene_data = list(set(chrm_exon_gene_data))
+
     # release memory
     del anno_raw_data
-    
-    chrm_exon_gene_data_sep = map(lambda line: (line[0], line[1], line[3]), chrm_exon_gene_data) + map(lambda line: (line[0], line[2], line[3]), chrm_exon_gene_data)    
+
+    chrm_exon_gene_data_sep = \
+        map(lambda line: (line[0], line[1], line[3]), chrm_exon_gene_data) + \
+        map(lambda line: (line[0], line[2], line[3]), chrm_exon_gene_data)
+
     chrm_exon_gene_data_sep = list(set(chrm_exon_gene_data_sep))
-    
+
     # generating gene_name_dict
     gene_name_dict = {}
     for line in chrm_exon_gene_data_sep:
         gene_key = '_'.join(line[:2])
         gene_name = line[2]
-        if gene_name_dict.has_key(gene_key):
+        if gene_key in gene_name_dict:
             gene_name_dict[gene_key].append(gene_name)
         else:
             gene_name_dict[gene_key] = [gene_name]
