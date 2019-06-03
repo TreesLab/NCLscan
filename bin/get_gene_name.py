@@ -37,6 +37,9 @@ def get_gene_name_dict(anno_file):
 
     chrm_exon_gene_data = []
     for data in anno_raw_data:
+        if len(data) < 9:
+            continue
+
         if data[2] == 'exon':
             gene_name = re.search(gene_name_pattern, data[8])
             if gene_name:
