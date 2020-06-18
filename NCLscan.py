@@ -187,7 +187,7 @@ def NCL_Scan4(config, datasets_list, project_name, output_dir):
     JSFilter_result_files = []
     for idx, dataset in enumerate(all_datasets):
         config_options.update({"dataset_prefix": "{}/{}.{}".format(output_dir, dataset.name, dataset.dataset_type), "idx":idx+1})
-        Run_with_args("{novoalign_bin} -r A 1 -t 0,1 -d {prefix}.JS2.ndx -f {dataset_prefix}.unmapped_1.fastq {dataset_prefix}.unmapped_2.fastq --3Prime -o SAM > {dataset_prefix}.JS2.sam")
+        Run_with_args("{novoalign_bin} -r A 1 -t 0,1 -d {prefix}.JS2.ndx -f {dataset_prefix}.unmapped_1.fastq {dataset_prefix}.unmapped_2.fastq -o SAM | {append_Z3_tag} > {dataset_prefix}.JS2.sam")
         Run_with_args("cat {dataset_prefix}.JS2.sam | {JSFilter_bin} 10 10 {prefix_all}.{idx}.result > {prefix_all}.{idx}.sam")
         JS2_files.append("{dataset_prefix}.JS2.sam".format(**config_options))
         JSFilter_result_files.append("{prefix_all}.{idx}.result".format(**config_options))
