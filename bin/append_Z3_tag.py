@@ -10,24 +10,23 @@ from itertools import chain
 logger = logging.getLogger(__name__)
 
 
-def append_Z3_tag():
-    for line in sys.stdin:
-        line = line.rstrip('\n')
+def append_Z3_tag(line):
+    line = line.rstrip('\n')
 
-        if line.startswith('@'):
+    if line.startswith('@'):
+        print(line)
+
+    else:
+        sam_data = line.split('\t')
+        pos = sam_data[3]
+        cigar = sam_data[5]
+
+        if cigar == '*':
             print(line)
 
         else:
-            sam_data = line.split('\t')
-            pos = sam_data[3]
-            cigar = sam_data[5]
-
-            if cigar == '*':
-                print(line)
-
-            else:
-                Z3_tag = generate_Z3_tag(pos, cigar)
-                print('\t'.join(sam_data + [Z3_tag]))
+            Z3_tag = generate_Z3_tag(pos, cigar)
+            print('\t'.join(sam_data + [Z3_tag]))
 
 
 def generate_Z3_tag(pos, cigar):
@@ -96,4 +95,5 @@ if __name__ == "__main__":
 
         logger.addHandler(fh)
 
-    append_Z3_tag()
+    for line in sys.stdin:
+        append_Z3_tag(line)
