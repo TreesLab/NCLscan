@@ -69,19 +69,19 @@ void PrintResult(BED *b5, BED *b3, int minMatches, int minDif)
 	if( (b3->qEnd - b5->qEnd + 1) < 20 )
 		return;
 
-	if( strcmp(b5->seqname, b3->seqname) == 0 && (b5->strand == b3->strand) )
-	{
-		if(b5->strand == '+')
-		{
-			if( (b3->start-b5->end > 0) && (b3->start-b5->end < 2000000) )
-				return;
-		}
-		else
-		{
-			if( (b5->start-b3->end > 0) && (b5->start-b3->end < 2000000) )
-				return;
-		}
-	}
+	// if( strcmp(b5->seqname, b3->seqname) == 0 && (b5->strand == b3->strand) )
+	// {
+	// 	if(b5->strand == '+')
+	// 	{
+	// 		if( (b3->start-b5->end > 0) && (b3->start-b5->end < 2000000) )
+	// 			return;
+	// 	}
+	// 	else
+	// 	{
+	// 		if( (b5->start-b3->end > 0) && (b5->start-b3->end < 2000000) )
+	// 			return;
+	// 	}
+	// }
 
 	printf("%s\t%d\t%d\t%s\t0\t%c\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n", b5->seqname, b5->start, b5->end, b5->name, b5->strand, 
 		b5->match, b5->qStart-1, b5->qEnd, b5->SecondBest_match, b5->SecondBest_qStart-1, b5->SecondBest_qEnd, b5->qSize);
