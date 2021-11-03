@@ -307,6 +307,10 @@ class NCLscanConfig(object):
             all_options[key] = value.format(**all_options)
         self.options = all_options
 
+        # check if novoalign v4 is used
+        if self.options['novoalign_version'] == '4':
+            self.options['novoalign_bin'] = self.options['novoalign_bin'] + ' --pechimera off'
+
         # parse bwa options
         bwa_option_keys = filter(lambda key: re.match("^bwa-mem", key), self.options.keys())
         bwa_options = []

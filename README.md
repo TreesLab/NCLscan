@@ -17,8 +17,9 @@ Please check the "[release](https://github.com/TreesLab/NCLscan/releases)" page 
 
 - Use `bedtools` **v2.29.0** or lower
   - In the latest version (v2.29.2), the default behavior of the option `-name` of `bedtools getfasta` has been changed, and this change would induce parsing errors in `NCLscan`.
-- Use `novoalign` **v3**
+- ~Use `novoalign` **v3**~
   - Issue [#21](https://github.com/TreesLab/NCLscan/issues/21#issuecomment-598612660)
+  - (2021/11/03) The novoalign v4 is now supported.
 
 
 ## 1. System requirements
