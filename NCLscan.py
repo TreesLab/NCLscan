@@ -291,6 +291,13 @@ def write_TSV(result, out_file="result.txt", write_to_string=False):
                 print >> data_writer, '\t'.join(map(str, line))
 
 
+def get_novoalign_version(novoalign_bin):
+    log_msg = sp.check_output([novoalign_bin])
+    m = re.search(r'Novoalign V([0-9]+).[0-9]+.[0-9]+', log_msg)
+    if m:
+        novoalign_version = m.group(1)
+        return novoalign_version
+
 class NCLscanConfig(object):
     def __init__(self, config_text):
         self.parse_config(config_text)
@@ -308,7 +315,8 @@ class NCLscanConfig(object):
         self.options = all_options
 
         # check if novoalign v4 is used
-        if self.options['novoalign_version'] == '4':
+        novoalign_version = get_novoalign_version(self.options['novoalign_bin'])
+        if novoalign_version == '4':
             self.options['novoalign_bin'] = self.options['novoalign_bin'] + ' --pechimera off'
 
         # parse bwa options
