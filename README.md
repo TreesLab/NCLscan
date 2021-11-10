@@ -20,7 +20,6 @@ Please check the "[release](https://github.com/TreesLab/NCLscan/releases)" page 
 - ~Use `novoalign` **v3**~
   - Issue [#21](https://github.com/TreesLab/NCLscan/issues/21#issuecomment-598612660)
   - (2021/11/03) The novoalign v4 is now supported.
-    - To use the novoalign v4, please edit the option 'novoalign_version' in the 'NCLscan.config'.
 
 
 ## 1. System requirements
