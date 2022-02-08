@@ -1,3 +1,12 @@
+2022-02-08
+  - remove "readthrough filter".
+
+2021-11-03
+  - supporting for novoalign V4.
+
+2019-05-21
+  - fix a bug in "get_gene_name.py".
+
 2019-02-19
   - fix a bug that missed by g++ of version <= 6.
 

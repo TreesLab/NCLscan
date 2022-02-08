@@ -1,5 +1,5 @@
 ## Manual of NCLscan
-###### Version: 1.6.5
+###### Version: 1.7.0
 
 We have developed a new pipeline, NCLscan, which is rather advantageous in the identification of both intragenic and intergenic "non-co-linear" (NCL) transcripts (fusion, trans-splicing, and circular RNA) from paired-end RNA-seq data. 
 
