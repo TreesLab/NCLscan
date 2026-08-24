@@ -14,6 +14,7 @@ def AssembleJSeq(jseq1_file, jseq2_file):
 
     get_ID = lambda seq: seq[0]
     common_IDs = list(set(map(get_ID, jseq1)) & set(map(get_ID, jseq2)))
+    #print(common_IDs)
 
     jseq1_common = iter(filter(lambda seq: seq[0] in common_IDs, jseq1))
     jseq2_common = iter(filter(lambda seq: seq[0] in common_IDs, jseq2))
@@ -56,7 +57,7 @@ def groupby(group_key, sorted_data):
     else:
         result_box.append(tmp_box)
     return result_box
-    
+
 
 
 if __name__ == "__main__":
